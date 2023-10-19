@@ -8,6 +8,7 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
 import Styles from './styles';
+import { getMovies } from './api';
 
 type Movie = {
   id: string;
@@ -21,20 +22,11 @@ function App(): JSX.Element {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState<Movie[]>([]);
 
-  const getMovies = async () => {
-    try {
-      const response = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=babcada8d42a5fd4857231c42240debd');
-      const json = await response.json();
-      setData(json.results);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getMovies();
+    getMovies().then((results) => {
+      setData(results);
+      setLoading(false);
+    });
   }, []);
 
   return (
