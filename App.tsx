@@ -10,8 +10,10 @@ import {ActivityIndicator, FlatList, SafeAreaView, Text, View} from 'react-nativ
 
 type Movie = {
   id: string;
+  backdrop_path: string;
   title: string;
-  releaseYear: string;
+  vote_average: number;
+  vote_count: number;
 };
 
 function App(): JSX.Element {
@@ -20,9 +22,9 @@ function App(): JSX.Element {
 
   const getMovies = async () => {
     try {
-      const response = await fetch('https://reactnative.dev/movies.json');
+      const response = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=babcada8d42a5fd4857231c42240debd');
       const json = await response.json();
-      setData(json.movies);
+      setData(json.results);
     } catch (error) {
       console.error(error);
     } finally {
@@ -36,7 +38,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{flex: 1, padding: 24}}>
+      <View style={{padding: 24}}>
         {isLoading ? (
           <ActivityIndicator />
         ) : (
@@ -45,7 +47,7 @@ function App(): JSX.Element {
             keyExtractor={({id}) => id}
             renderItem={({item}) => (
               <Text>
-                {item.title}, {item.releaseYear}
+                {item.title}, {item.vote_average}, {item.vote_count}
               </Text>
             )}
           />
