@@ -9,14 +9,7 @@ import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
 import Styles from './styles';
 import { getMovies } from './api';
-
-type Movie = {
-  id: string;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-  vote_count: number;
-};
+import { Movie } from './model';
 
 function App(): JSX.Element {
   const [isLoading, setLoading] = useState(true);
