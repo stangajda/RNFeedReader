@@ -41,13 +41,13 @@ function App(): JSX.Element {
             renderItem={({item}) => (
               <View style={Styles.listItem}>
                 <Image source={{uri: `https://image.tmdb.org/t/p/w200${item.poster_path}`}} style={Styles.image} />
-                <View style={{flexDirection: "column", flex: 1 }}>
+                <View style={Styles.rightItemContainer}>
                   <Text numberOfLines={2} ellipsizeMode="tail" style={Styles.title}>
                     {item.title}
                   </Text>
                   <View style={Styles.ratingContainer}>
                     <Text style={Styles.rating}>{item.vote_average} </Text> 
-                    <Text>({item.vote_count})</Text>
+                    <Text style={Styles.voteCount}>({item.vote_count})</Text>
                   </View>
                 </View>
               </View>

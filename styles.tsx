@@ -11,6 +11,10 @@ export default StyleSheet.create({
     flexDirection: "row",
     padding: 8
   },
+  rightItemContainer: {
+    flexDirection: "column",
+    flex: 1
+  },
   image: {
     width: 64,
     height: 88,
@@ -19,7 +23,8 @@ export default StyleSheet.create({
   title: {
     flexShrink: 1,
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'black'
   },
   ratingContainer: {
     flexDirection: "row",
@@ -27,6 +32,10 @@ export default StyleSheet.create({
     alignItems: "center"
   },
   rating: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: "#444"
+  },
+  voteCount: {
+    color: 'grey'
   }
 });
