@@ -7,9 +7,9 @@
 
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
-import Styles from './styles';
-import { getMovies } from './api';
-import { Movie } from './model';
+import Styles from './Styles';
+import { getMovies } from './Api';
+import { Movie } from './Model';
 
 function App(): JSX.Element {
   const [isLoading, setLoading] = useState(true);
