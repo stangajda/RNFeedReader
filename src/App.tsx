@@ -8,12 +8,10 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
 import Styles from './Styles';
-import { getMovies } from './Api';
-import { Movie } from './Model';
 import MovieList from './MovieList';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { onAppear, getFeed } from './feedSlice'
+import { onAppear } from './feedSlice'
 
 function App(): JSX.Element {
 
@@ -23,7 +21,7 @@ function App(): JSX.Element {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getFeed())
+    dispatch(onAppear())
   }, []);
 
   return (

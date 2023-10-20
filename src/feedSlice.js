@@ -10,11 +10,6 @@ export const feedSlice = createSlice({
   name: 'feed',
   initialState,
 reducers: {
-    onAppear: (state, action) => {
-        state.data = action.payload;
-        state.isLoading = false;
-       
-    },
     onLoaded: (state, action) => {
         state.data = action.payload;
         state.isLoading = false;
@@ -23,12 +18,12 @@ reducers: {
 })
 
 
-export const { onAppear } = feedSlice.actions
+export const { onLoaded } = feedSlice.actions
 
 
-export const getFeed = () => (dispatch) => {
+export const onAppear = () => (dispatch) => {
     getMovies().then((results) => {
-        dispatch(onAppear(results));
+        dispatch(onLoaded(results));
     });
 }
 
