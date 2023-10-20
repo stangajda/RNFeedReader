@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getMovies } from './Api';
 import { Movie } from './Model';
-import type { RootState } from './store'
+import type { RootState, AppDispatch } from './store'
 
 export interface FeedState {
     isLoading: boolean;
@@ -28,7 +28,7 @@ export const { onLoaded } = feedSlice.actions
 export const getData = (state: RootState) => state.feed.data
 export const getIsLoading = (state: RootState) => state.feed.isLoading
 
-export const onAppear = () => (dispatch: any) => {
+export const onAppear = () => (dispatch: AppDispatch) => {
     getMovies().then((results) => {
         dispatch(onLoaded(results));
     });
