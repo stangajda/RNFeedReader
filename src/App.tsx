@@ -5,8 +5,8 @@
  * @format
  */
 
-import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
+import React, { useEffect } from 'react';
+import { ActivityIndicator, SafeAreaView, View } from 'react-native';
 import Styles from './Styles';
 import MovieList from './MovieList';
 
