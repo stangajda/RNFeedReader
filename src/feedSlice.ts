@@ -9,7 +9,7 @@ export interface FeedState {
     data: Movie[];
 }
 
-const initialState = {
+const initialState: FeedState = {
   isLoading: true,
   data: []
 }
@@ -18,7 +18,7 @@ export const feedSlice = createSlice({
   name: 'feed',
   initialState,
   reducers: {
-    onLoaded: (state, action: PayloadAction<never[]>) => {
+    onLoaded: (state, action: PayloadAction<Movie[]>) => {
         state.data = action.payload;
         state.isLoading = false;
     },
