@@ -11,12 +11,12 @@ import Styles from './Styles';
 import MovieList from './MovieList';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { onAppear } from './feedSlice'
+import { onAppear, getIsLoading, getData } from './feedSlice'
 
 function App(): JSX.Element {
 
-  const isLoading = useSelector((state) => state.feed.isLoading)
-  const data = useSelector((state) => state.feed.data)
+  const isLoading = useSelector(getIsLoading)
+  const data = useSelector(getData)
 
   const dispatch = useDispatch()
 

@@ -9,17 +9,17 @@ const initialState = {
 export const feedSlice = createSlice({
   name: 'feed',
   initialState,
-reducers: {
+  reducers: {
     onLoaded: (state, action) => {
         state.data = action.payload;
         state.isLoading = false;
     },
-},
+   },
 })
 
-
 export const { onLoaded } = feedSlice.actions
-
+export const getData = (state) => state.feed.data
+export const getIsLoading = (state) => state.feed.isLoading
 
 export const onAppear = () => (dispatch) => {
     getMovies().then((results) => {
