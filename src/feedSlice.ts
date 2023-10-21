@@ -5,12 +5,12 @@ import type { RootState } from './store'
 
 export interface FeedState {
     loadableStatus: LoadableStatus;
-    data: Movie[];
+    movieList: Movie[];
 }
 
 const initialState: FeedState = {
   loadableStatus: LoadableStatus.Start,
-  data: []
+  movieList: []
 }
 
 export const fetchMovies = createAsyncThunk('posts/fetchMovies', async () => {
@@ -29,7 +29,7 @@ export const feedSlice = createSlice({
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loadableStatus = LoadableStatus.Loaded
-        state.data = action.payload
+        state.movieList = action.payload
       })
       .addCase(fetchMovies.rejected, (state) => {
         state.loadableStatus = LoadableStatus.FailedLoaded
@@ -38,7 +38,7 @@ export const feedSlice = createSlice({
 })
 
 
-export const getMovieList = (state: RootState): Movie[] => state.feed.data
+export const getMovieList = (state: RootState): Movie[] => state.feed.movieList
 export const getLoadableStatus = (state: RootState): LoadableStatus => state.feed.loadableStatus
 
 export default feedSlice.reducer
