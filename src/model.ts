@@ -5,3 +5,10 @@ export type Movie = {
   vote_average: number;
   vote_count: number;
 };
+
+export enum LoadableStatus {
+  Start = "Start",
+  Loading = "Loading",
+  Loaded = "Loaded",
+  FailedLoaded = "FailedLoaded",
+}
