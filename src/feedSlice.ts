@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovies } from './api';
 import { Movie } from './model';
-import type { RootState, AppDispatch } from './store'
+import type { RootState } from './store'
 
 export interface FeedState {
     isLoading: boolean;
