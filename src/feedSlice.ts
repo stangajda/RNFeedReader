@@ -25,7 +25,7 @@ export const feedSlice = createSlice({
 })
 
 export const { onLoaded } = feedSlice.actions
-export const getData = (state: RootState): Movie[] => state.feed.data
+export const getMovieList = (state: RootState): Movie[] => state.feed.data
 export const getIsLoading = (state: RootState): boolean => state.feed.isLoading
 
 export const onAppear = () => (dispatch: AppDispatch) => {
