@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovies } from './api';
-import { Movie, LoadableStatus } from './model';
+import { Movie, Status } from './model';
 import type { RootState } from './store'
 
 export interface FeedState {
-    loadableStatus: LoadableStatus;
+    loadableStatus: Status;
     movieList: Movie[];
 }
 
 const initialState: FeedState = {
-  loadableStatus: LoadableStatus.Start,
+  loadableStatus: Status.Idle,
   movieList: []
 }
 
@@ -25,20 +25,20 @@ export const feedSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchMovies.pending, (state) => {
-        state.loadableStatus = LoadableStatus.Loading
+        state.loadableStatus = Status.Loading
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
-        state.loadableStatus = LoadableStatus.Loaded
+        state.loadableStatus = Status.Succeeded
         state.movieList = action.payload
       })
       .addCase(fetchMovies.rejected, (state) => {
-        state.loadableStatus = LoadableStatus.FailedLoaded
+        state.loadableStatus = Status.Failed
       })
   }
 })
 
 
 export const getMovieList = (state: RootState): Movie[] => state.feed.movieList
-export const getLoadableStatus = (state: RootState): LoadableStatus => state.feed.loadableStatus
+export const getLoadableStatus = (state: RootState): Status => state.feed.loadableStatus
 
 export default feedSlice.reducer

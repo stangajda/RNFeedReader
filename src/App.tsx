@@ -13,11 +13,11 @@ import MovieList from './MovieList';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchMovies, getLoadableStatus, getMovieList } from './feedSlice'
 import { AppDispatch } from './store';
-import { Movie, LoadableStatus } from './model';
+import { Movie, Status } from './model';
 
 function App(): JSX.Element {
 
-  const loadableStatus: LoadableStatus = useSelector(getLoadableStatus)
+  const loadableStatus: Status = useSelector(getLoadableStatus)
   const movieList: Movie[] = useSelector(getMovieList)
 
   const dispatch: AppDispatch = useDispatch()
@@ -29,8 +29,8 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       <View style={Styles.container}>
-        {loadableStatus === LoadableStatus.Loading && <ActivityIndicator />}
-        {loadableStatus === LoadableStatus.Loaded && <MovieList movieList={movieList} />}
+        {loadableStatus === Status.Loading && <ActivityIndicator />}
+        {loadableStatus === Status.Succeeded && <MovieList movieList={movieList} />}
       </View>
     </SafeAreaView>
 )};

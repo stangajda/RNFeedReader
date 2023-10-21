@@ -6,9 +6,9 @@ export type Movie = {
   vote_count: number;
 };
 
-export enum LoadableStatus {
-  Start = "Start",
+export enum Status {
+  Idle = "Idle",
   Loading = "Loading",
-  Loaded = "Loaded",
-  FailedLoaded = "FailedLoaded",
+  Succeeded = "Succeeded",
+  Failed = "Failed",
 }
