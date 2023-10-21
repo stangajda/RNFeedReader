@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList, View, Text, Image } from 'react-native';
 
-import Styles from './Styles';
-import { Movie } from './Model';
+import Styles from './styles';
+import { Movie } from './model';
 
 type Props = {
   movieList: Movie[];

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getMovies } from './Api';
-import { Movie } from './Model';
+import { getMovies } from './api';
+import { Movie } from './model';
 import type { RootState, AppDispatch } from './store'
 
 export interface FeedState {

@@ -7,13 +7,13 @@
 
 import React, { useEffect } from 'react';
 import { ActivityIndicator, SafeAreaView, View } from 'react-native';
-import Styles from './Styles';
+import Styles from './styles';
 import MovieList from './MovieList';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { onAppear, getIsLoading, getMovieList } from './feedSlice'
 import { AppDispatch } from './store';
-import { Movie } from './Model';
+import { Movie } from './model';
 
 function App(): JSX.Element {
 
