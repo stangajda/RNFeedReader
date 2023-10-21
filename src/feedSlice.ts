@@ -21,13 +21,8 @@ export const fetchMovies = createAsyncThunk('posts/fetchMovies', async () => {
 export const feedSlice = createSlice({
   name: 'feed',
   initialState,
-  reducers: {
-    onLoaded: (state, action: PayloadAction<Movie[]>) => {
-        state.data = action.payload;
-        state.isLoading = false;
-    },
-   },
-   extraReducers: (builder) => {
+  reducers: {},
+  extraReducers: (builder) => {
     builder
       .addCase(fetchMovies.pending, (state) => {
         state.isLoading = true
@@ -42,7 +37,7 @@ export const feedSlice = createSlice({
   }
 })
 
-export const { onLoaded } = feedSlice.actions
+
 export const getMovieList = (state: RootState): Movie[] => state.feed.data
 export const getIsLoading = (state: RootState): boolean => state.feed.isLoading
 
