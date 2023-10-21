@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovies } from './api';
 import { Movie } from './model';
 import type { RootState, AppDispatch } from './store'
@@ -13,6 +13,11 @@ const initialState: FeedState = {
   data: []
 }
 
+export const fetchMovies = createAsyncThunk('posts/fetchMovies', async () => {
+  const response = await getMovies()
+  return response
+})
+
 export const feedSlice = createSlice({
   name: 'feed',
   initialState,
@@ -22,16 +27,23 @@ export const feedSlice = createSlice({
         state.isLoading = false;
     },
    },
+   extraReducers: (builder) => {
+    builder
+      .addCase(fetchMovies.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(fetchMovies.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.data = action.payload
+      })
+      .addCase(fetchMovies.rejected, (state) => {
+        state.isLoading = false
+      })
+  }
 })
 
 export const { onLoaded } = feedSlice.actions
 export const getMovieList = (state: RootState): Movie[] => state.feed.data
 export const getIsLoading = (state: RootState): boolean => state.feed.isLoading
-
-export const onAppear = () => (dispatch: AppDispatch) => {
-    getMovies().then((results) => {
-        dispatch(onLoaded(results));
-    });
-}
 
 export default feedSlice.reducer

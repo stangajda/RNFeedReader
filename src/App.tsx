@@ -11,7 +11,7 @@ import Styles from './styles';
 import MovieList from './MovieList';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { onAppear, getIsLoading, getMovieList } from './feedSlice'
+import { fetchMovies, getIsLoading, getMovieList } from './feedSlice'
 import { AppDispatch } from './store';
 import { Movie } from './model';
 
@@ -23,7 +23,7 @@ function App(): JSX.Element {
   const dispatch: AppDispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(onAppear())
+    dispatch(fetchMovies())
   }, []);
 
   return (
