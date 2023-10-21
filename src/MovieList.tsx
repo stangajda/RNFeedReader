@@ -5,10 +5,10 @@ import Styles from './Styles';
 import { Movie } from './Model';
 
 type Props = {
-  data: Movie[];
+  movieList: Movie[];
 };
   
-const MovieList: React.FC<Props> = ({ data }) => {
+const MovieList: React.FC<Props> = ({ movieList }) => {
   const renderItem = ({ item }: { item: Movie }) => (
     <View style={Styles.listItem}>
       <Image
@@ -29,7 +29,7 @@ const MovieList: React.FC<Props> = ({ data }) => {
 
   return (
     <FlatList
-      data={data}
+      data={movieList}
       keyExtractor={({ id }) => id}
       renderItem={renderItem}
     />

@@ -13,11 +13,12 @@ import MovieList from './MovieList';
 import { useSelector, useDispatch } from 'react-redux'
 import { onAppear, getIsLoading, getData } from './feedSlice'
 import { AppDispatch } from './store';
+import { Movie } from './Model';
 
 function App(): JSX.Element {
 
-  const isLoading = useSelector(getIsLoading)
-  const data = useSelector(getData)
+  const isLoading: boolean = useSelector(getIsLoading)
+  const movieList: Movie[] = useSelector(getData)
 
   const dispatch: AppDispatch = useDispatch()
 
@@ -31,7 +32,7 @@ function App(): JSX.Element {
         {isLoading ? (
           <ActivityIndicator />
         ) : (
-          <MovieList data={data} />
+          <MovieList movieList={movieList} />
         )}
       </View>
     </SafeAreaView>
