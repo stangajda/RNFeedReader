@@ -8,10 +8,8 @@
 import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
-import {  SerializedError } from '@reduxjs/toolkit';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
-import { Movies, Movie, Status } from './model';
+import { Movie } from './model';
 
 import { useGetMoviesQuery } from './apiSlice'
 
