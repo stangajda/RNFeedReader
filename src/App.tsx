@@ -17,13 +17,8 @@ import { useGetMoviesQuery } from './apiSlice'
 
 function App(): JSX.Element {
 
-  const query = useGetMoviesQuery({});
-  const movies: Movies | undefined = query.data;
-  const movieList: Movie[] = movies?.results || [];
-  const isLoading: boolean = query.isLoading;
-  const isSuccess: boolean = query.isSuccess;
-  const isError: boolean = query.isError;
-  const error: FetchBaseQueryError | SerializedError | undefined = query.error;
+  const { data, isLoading, isSuccess, isError, error } = useGetMoviesQuery({});
+  const movieList: Movie[] = data?.results || [];
   
   return (
     <SafeAreaView style={Styles.safeAreaView}>
