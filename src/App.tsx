@@ -17,13 +17,27 @@ function App(): JSX.Element {
 
   const { data, isLoading, isSuccess, isError, error } = useGetMoviesQuery({});
   const movieList: Movie[] = data?.results || [];
+
+  let content: JSX.Element | null = null;
+
+  switch (true) {
+    case isLoading:
+      content = <ActivityIndicator />;
+      break;
+    case isSuccess:
+      content = <MovieList movieList={movieList} />;
+      break;
+    case isError:
+      content = <Text>{error?.toString()}</Text>;
+      break;
+    default:
+      content = null;
+  }
   
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       <View style={Styles.container}>
-        {isLoading && <ActivityIndicator />}
-        {isSuccess && <MovieList movieList={movieList} />}
-        {isError && <Text>{error?.toString()}</Text>}
+        <View style={Styles.container}>{content}</View>
       </View>
     </SafeAreaView>
   )};
