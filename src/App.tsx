@@ -18,7 +18,7 @@ function App(): JSX.Element {
   const { data, isLoading, isSuccess, isError, error } = useGetMoviesQuery({});
   const movieList: Movie[] = data?.results || [];
 
-  let content: JSX.Element | null = null;
+  let content: JSX.Element | null;
 
   switch (true) {
     case isLoading:
