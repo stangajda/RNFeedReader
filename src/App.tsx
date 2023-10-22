@@ -5,34 +5,34 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
-import { ActivityIndicator, SafeAreaView, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
+import {  SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchMovies, getLoadableStatus, getMovieList } from './feedSlice'
-import { AppDispatch } from './store';
-import { Movie, Status } from './model';
+import { Movies, Movie, Status } from './model';
+
+import { useGetMoviesQuery } from './apiSlice'
 
 function App(): JSX.Element {
 
-  const loadableStatus: Status = useSelector(getLoadableStatus)
-  const movieList: Movie[] = useSelector(getMovieList)
-
-  const dispatch: AppDispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchMovies())
-  }, []);
-
+  const query = useGetMoviesQuery({});
+  const movies: Movies | undefined = query.data;
+  const movieList: Movie[] = movies?.results || [];
+  const isLoading: boolean = query.isLoading;
+  const isSuccess: boolean = query.isSuccess;
+  const isError: boolean = query.isError;
+  const error: FetchBaseQueryError | SerializedError | undefined = query.error;
+  
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       <View style={Styles.container}>
-        {loadableStatus === Status.Loading && <ActivityIndicator />}
-        {loadableStatus === Status.Succeeded && <MovieList movieList={movieList} />}
+        {isLoading && <ActivityIndicator />}
+        {isSuccess && <MovieList movieList={movieList} />}
+        {isError && <Text>{error?.toString()}</Text>}
       </View>
     </SafeAreaView>
-)};
+  )};
 
 export default App;

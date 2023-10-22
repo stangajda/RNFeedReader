@@ -12,3 +12,8 @@ export enum Status {
   Succeeded = "Succeeded",
   Failed = "Failed",
 }
+
+export type Movies = {
+  results: Movie[];
+  page: number;
+}
