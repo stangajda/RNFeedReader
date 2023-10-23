@@ -36,9 +36,7 @@ function App(): JSX.Element {
   
   return (
     <SafeAreaView style={Styles.safeAreaView}>
-      <View style={Styles.container}>
-        <View style={Styles.container}>{content}</View>
-      </View>
+      <View style={Styles.container}>{content}</View>
     </SafeAreaView>
   )};
 
