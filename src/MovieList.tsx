@@ -11,7 +11,7 @@ type Props = {
 };
   
 const MovieList: React.FC<Props> = ({ movieList }) => {
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState(String());
   const selectedStyle = {
     ...Styles.listItem,
     backgroundColor: "lightblue"
