@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, View, Text, Image } from 'react-native';
+import { FlatList, View, Text, Image, Button } from 'react-native';
 
 import Styles from './styles';
 import { Movie } from './model';
@@ -22,6 +22,17 @@ const MovieList: React.FC<Props> = ({ movieList }) => {
         <View style={Styles.ratingContainer}>
           <Text style={Styles.rating}>{item.vote_average} </Text>
           <Text style={Styles.voteCount}>({item.vote_count})</Text>
+          <View style={{ width: 8 }} />
+          <Button
+            title="Right button"
+            onPress={
+              () => {
+                console.log(`Button pressed for movie ${item.id}: ${item.title}`)
+                movieList[item.id].active = movieList[item.id].active = true;
+                console.log(`Button pressed for movie ${item.id}: ${item.title} - ${movieList[item.id].active}`)
+              }
+            }
+          />
         </View>
       </View>
     </View>

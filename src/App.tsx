@@ -5,7 +5,7 @@
  * @format
  */
 
-import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
+import { ActivityIndicator, SafeAreaView, View, Text, Button } from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
 
@@ -36,7 +36,9 @@ function App(): JSX.Element {
   
   return (
     <SafeAreaView style={Styles.safeAreaView}>
-      <View style={Styles.container}>{content}</View>
+      <View style={Styles.container}>
+        {content}
+      </View>
     </SafeAreaView>
   )};
 
