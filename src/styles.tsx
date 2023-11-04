@@ -1,41 +1,41 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   safeAreaView: {
-    flex: 1
+    flex: 1,
   },
   container: {
-    padding: 24
+    padding: 24,
   },
   listItem: {
-    flexDirection: "row",
-    padding: 8
+    flexDirection: 'row',
+    padding: 8,
   },
   rightItemContainer: {
-    flexDirection: "column",
-    flex: 1
+    flexDirection: 'column',
+    flex: 1,
   },
   image: {
     width: 64,
     height: 88,
-    marginRight: 8
+    marginRight: 8,
   },
   title: {
     flexShrink: 1,
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
   },
   ratingContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     flex: 1,
-    alignItems: "center"
+    alignItems: 'center',
   },
   rating: {
     fontWeight: 'bold',
-    color: "#444"
+    color: '#444',
   },
   voteCount: {
-    color: 'grey'
-  }
+    color: 'grey',
+  },
 });
