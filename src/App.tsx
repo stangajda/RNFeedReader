@@ -14,11 +14,11 @@ import {Movie} from './model';
 
 import {useGetMoviesQuery} from './apiSlice';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const {data, isLoading, isSuccess, isError, error} = useGetMoviesQuery({});
   const movieList: Movie[] = data?.results || [];
 
-  let content: JSX.Element | null;
+  let content: React.JSX.Element | null;
 
   switch (true) {
     case isLoading:
