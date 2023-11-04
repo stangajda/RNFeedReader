@@ -7,13 +7,13 @@ export type Movie = {
 };
 
 export enum Status {
-  Idle = "Idle",
-  Loading = "Loading",
-  Succeeded = "Succeeded",
-  Failed = "Failed",
+  Idle = 'Idle',
+  Loading = 'Loading',
+  Succeeded = 'Succeeded',
+  Failed = 'Failed',
 }
 
 export type Movies = {
   results: Movie[];
   page: number;
-}
+};

@@ -1,18 +1,18 @@
 import React from 'react';
-import { FlatList, View, Text, Image } from 'react-native';
+import {FlatList, View, Text, Image} from 'react-native';
 
 import Styles from './styles';
-import { Movie } from './model';
+import {Movie} from './model';
 
 type Props = {
   movieList: Movie[];
 };
-  
-const MovieList: React.FC<Props> = ({ movieList }) => {
-  const renderItem = ({ item }: { item: Movie }) => (
+
+const MovieList: React.FC<Props> = ({movieList}) => {
+  const renderItem = ({item}: {item: Movie}) => (
     <View style={Styles.listItem}>
       <Image
-        source={{ uri: `https://image.tmdb.org/t/p/w200${item.poster_path}` }}
+        source={{uri: `https://image.tmdb.org/t/p/w200${item.poster_path}`}}
         style={Styles.image}
       />
       <View style={Styles.rightItemContainer}>
@@ -30,7 +30,7 @@ const MovieList: React.FC<Props> = ({ movieList }) => {
   return (
     <FlatList
       data={movieList}
-      keyExtractor={({ id }) => id}
+      keyExtractor={({id}) => id}
       renderItem={renderItem}
     />
   );

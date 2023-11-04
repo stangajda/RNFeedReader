@@ -5,17 +5,17 @@
  * @format
  */
 
-import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
+import React from 'react';
+import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
 
-import { Movie } from './model';
+import {Movie} from './model';
 
-import { useGetMoviesQuery } from './apiSlice'
+import {useGetMoviesQuery} from './apiSlice';
 
 function App(): JSX.Element {
-
-  const { data, isLoading, isSuccess, isError, error } = useGetMoviesQuery({});
+  const {data, isLoading, isSuccess, isError, error} = useGetMoviesQuery({});
   const movieList: Movie[] = data?.results || [];
 
   let content: JSX.Element | null;
@@ -33,11 +33,12 @@ function App(): JSX.Element {
     default:
       content = null;
   }
-  
+
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       <View style={Styles.container}>{content}</View>
     </SafeAreaView>
-  )};
+  );
+}
 
 export default App;
