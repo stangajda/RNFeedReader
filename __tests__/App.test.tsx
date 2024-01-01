@@ -30,7 +30,26 @@ function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
-const data = {};
+const data = {
+  results: [
+    {
+      id: 1,
+      title: 'title1',
+      overview: 'overview1',
+      vote_average: 1,
+      vote_count: 1,
+      poster_path: 'poster_path1',
+    },
+    {
+      id: 2,
+      title: 'title2',
+      overview: 'overview2',
+      vote_average: 2,
+      vote_count: 2,
+      poster_path: 'poster_path2',
+    },
+  ],
+};
 
 beforeAll(() => {
   fetchMock.mockOnceIf(
@@ -38,7 +57,7 @@ beforeAll(() => {
     () =>
       Promise.resolve({
         status: 200,
-        body: JSON.stringify({data}),
+        body: JSON.stringify(data),
       }),
   );
 });
@@ -78,4 +97,6 @@ it('renders hook', async () => {
     currentData: data,
     isFetching: false,
   });
+
+  //console.log(result.current);
 });
