@@ -97,6 +97,4 @@ it('renders hook', async () => {
     currentData: data,
     isFetching: false,
   });
-
-  //console.log(result.current);
 });
