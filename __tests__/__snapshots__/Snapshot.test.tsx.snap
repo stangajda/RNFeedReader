@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  >
+    <ActivityIndicator />
+  </View>
+</RCTSafeAreaView>
+`;
