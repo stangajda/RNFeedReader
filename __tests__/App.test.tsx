@@ -35,12 +35,9 @@ const data = {
 };
 
 const server = setupServer(
-  http.get(
-    'https://api.themoviedb.org/3/trending/movie/day?api_key=babcada8d42a5fd4857231c42240debd',
-    ({request, params, cookies}) => {
-      return HttpResponse.json(data);
-    },
-  ),
+  http.get('*/trending/movie/day', ({request, params, cookies}) => {
+    return HttpResponse.json(data);
+  }),
 );
 
 beforeAll(() => server.listen());
