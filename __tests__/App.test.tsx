@@ -13,39 +13,38 @@ function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
-const data = {
-  results: [
-    {
-      id: 1,
-      title: 'title1',
-      overview: 'overview1',
-      vote_average: 1,
-      vote_count: 1,
-      poster_path: 'poster_path1',
-    },
-    {
-      id: 2,
-      title: 'title2',
-      overview: 'overview2',
-      vote_average: 2,
-      vote_count: 2,
-      poster_path: 'poster_path2',
-    },
-  ],
-};
-
-const server = setupServer(
-  http.get('*/trending/movie/day', ({request, params, cookies}) => {
-    return HttpResponse.json(data);
-  }),
-);
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
-
 describe('useGetMoviesQuery', () => {
   const endpointName = 'getMovies';
+  const data = {
+    results: [
+      {
+        id: 1,
+        title: 'title1',
+        overview: 'overview1',
+        vote_average: 1,
+        vote_count: 1,
+        poster_path: 'poster_path1',
+      },
+      {
+        id: 2,
+        title: 'title2',
+        overview: 'overview2',
+        vote_average: 2,
+        vote_count: 2,
+        poster_path: 'poster_path2',
+      },
+    ],
+  };
+
+  const server = setupServer(
+    http.get('*/trending/movie/day', ({}) => {
+      return HttpResponse.json(data);
+    }),
+  );
+
+  beforeAll(() => server.listen());
+  afterEach(() => server.resetHandlers());
+  afterAll(() => server.close());
 
   it('renders hook', async () => {
     const {result} = renderHook(() => useGetMoviesQuery({}), {
