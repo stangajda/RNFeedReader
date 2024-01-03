@@ -1,56 +1,54 @@
 import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
-import fetchMock from 'jest-fetch-mock';
+import {http, HttpResponse} from 'msw';
+import {setupServer} from 'msw/node';
 import {useGetMoviesQuery} from '../src/apiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
 import {store} from '../src/store';
 import {Provider} from 'react-redux';
 
-fetchMock.enableMocks();
-
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
-beforeEach(() => {
-  fetchMock.resetMocks();
-});
+const data = {
+  results: [
+    {
+      id: 1,
+      title: 'title1',
+      overview: 'overview1',
+      vote_average: 1,
+      vote_count: 1,
+      poster_path: 'poster_path1',
+    },
+    {
+      id: 2,
+      title: 'title2',
+      overview: 'overview2',
+      vote_average: 2,
+      vote_count: 2,
+      poster_path: 'poster_path2',
+    },
+  ],
+};
+
+const server = setupServer(
+  http.get(
+    'https://api.themoviedb.org/3/trending/movie/day?api_key=babcada8d42a5fd4857231c42240debd',
+    ({request, params, cookies}) => {
+      return HttpResponse.json(data);
+    },
+  ),
+);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 describe('useGetMoviesQuery', () => {
   const endpointName = 'getMovies';
-  const data = {
-    results: [
-      {
-        id: 1,
-        title: 'title1',
-        overview: 'overview1',
-        vote_average: 1,
-        vote_count: 1,
-        poster_path: 'poster_path1',
-      },
-      {
-        id: 2,
-        title: 'title2',
-        overview: 'overview2',
-        vote_average: 2,
-        vote_count: 2,
-        poster_path: 'poster_path2',
-      },
-    ],
-  };
-
-  beforeEach(() => {
-    fetchMock.mockOnceIf(
-      'https://api.themoviedb.org/3/trending/movie/day?api_key=babcada8d42a5fd4857231c42240debd',
-      () =>
-        Promise.resolve({
-          status: 200,
-          body: JSON.stringify(data),
-        }),
-    );
-  });
 
   it('renders hook', async () => {
     const {result} = renderHook(() => useGetMoviesQuery({}), {
@@ -67,7 +65,6 @@ describe('useGetMoviesQuery', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(fetchMock).toBeCalledTimes(1);
     expect(result.current).toMatchObject({
       status: 'fulfilled',
       endpointName,
