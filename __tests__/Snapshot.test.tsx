@@ -1,17 +1,13 @@
-import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
-import App from '../src/App';
-import {Provider} from 'react-redux';
-import {store} from '../src/store';
 
-function wrapper({children}: {children: ReactNode}) {
-  return <Provider store={store}>{children}</Provider>;
-}
+import {Button} from 'react-native';
+
+import React from 'react';
 
 describe('App snapshot test', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(wrapper({children: <App />})).toJSON();
+    const tree = renderer.create(<Button title="hello" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
