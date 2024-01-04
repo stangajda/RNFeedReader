@@ -9,33 +9,14 @@ import {renderHook, waitFor} from '@testing-library/react-native';
 import {store} from '../src/store';
 import {Provider} from 'react-redux';
 
+import data from '../__tests__/StubMovieListResponseResult.json';
+
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
 describe('useGetMoviesQuery', () => {
   const endpointName = 'getMovies';
-  const data = {
-    results: [
-      {
-        id: 1,
-        title: 'title1',
-        overview: 'overview1',
-        vote_average: 1,
-        vote_count: 1,
-        poster_path: 'poster_path1',
-      },
-      {
-        id: 2,
-        title: 'title2',
-        overview: 'overview2',
-        vote_average: 2,
-        vote_count: 2,
-        poster_path: 'poster_path2',
-      },
-    ],
-  };
-
   const server = setupServer(
     http.get('*/trending/movie/day', ({}) => {
       return HttpResponse.json(data);
