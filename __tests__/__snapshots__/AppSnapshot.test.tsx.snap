@@ -1,0 +1,1045 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        [
+          {
+            "id": 1,
+            "poster_path": "0-poster_path",
+            "title": "mock-0-title",
+            "vote_average": 6.1,
+            "vote_count": 1724,
+          },
+          {
+            "id": 2,
+            "poster_path": "1-poster_path",
+            "title": "mock-1-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 3,
+            "poster_path": "2-poster_path",
+            "title": "mock-2-title",
+            "vote_average": 6.9,
+            "vote_count": 711,
+          },
+          {
+            "id": 4,
+            "poster_path": "3-poster_path",
+            "title": "mock-3-title",
+            "vote_average": 6.5,
+            "vote_count": 1724,
+          },
+          {
+            "id": 5,
+            "poster_path": "4-poster_path",
+            "title": "mock-4-title",
+            "vote_average": 6.5,
+            "vote_count": 1724,
+          },
+          {
+            "id": 6,
+            "poster_path": "5-poster_path",
+            "title": "mock-5-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 7,
+            "poster_path": "6-poster_path",
+            "title": "mock-6-title",
+            "vote_average": 6.5,
+            "vote_count": 1724,
+          },
+          {
+            "id": 8,
+            "poster_path": "7-poster_path",
+            "title": "mock-7-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 9,
+            "poster_path": "8-poster_path",
+            "title": "mock-8-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 10,
+            "poster_path": "9-poster_path",
+            "title": "mock-9-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 11,
+            "poster_path": "10-poster_path",
+            "title": "mock-10-title",
+            "vote_average": 7.1,
+            "vote_count": 711,
+          },
+          {
+            "id": 12,
+            "poster_path": "11-poster_path",
+            "title": "mock-11-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 13,
+            "poster_path": "12-poster_path",
+            "title": "mock-12-title",
+            "vote_average": 7.2,
+            "vote_count": 711,
+          },
+          {
+            "id": 14,
+            "poster_path": "13-poster_path",
+            "title": "mock-13-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 15,
+            "poster_path": "14-poster_path",
+            "title": "mock-14-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 16,
+            "poster_path": "15-poster_path",
+            "title": "mock-15-title",
+            "vote_average": 6.5,
+            "vote_count": 675,
+          },
+          {
+            "id": 17,
+            "poster_path": "16-poster_path",
+            "title": "mock-16-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 18,
+            "poster_path": "17-poster_path",
+            "title": "mock-17-title",
+            "vote_average": 6.5,
+            "vote_count": 654,
+          },
+          {
+            "id": 19,
+            "poster_path": "18-poster_path",
+            "title": "mock-18-title",
+            "vote_average": 6.2,
+            "vote_count": 711,
+          },
+          {
+            "id": 20,
+            "poster_path": "19-poster_path",
+            "title": "mock-19-title",
+            "vote_average": 6.5,
+            "vote_count": 711,
+          },
+          {
+            "id": 21,
+            "poster_path": "20-poster_path",
+            "title": "mock-20-title",
+            "vote_average": 4.4,
+            "vote_count": 3212,
+          },
+          {
+            "id": 22,
+            "poster_path": "21-poster_path",
+            "title": "mock-21-title",
+            "vote_average": 9.1,
+            "vote_count": 765,
+          },
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2000-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-0-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.1
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  1724
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2001-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-1-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2002-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-2-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.9
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2003-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-3-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  1724
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2004-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-4-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  1724
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2005-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-5-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2006-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-6-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  1724
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2007-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-7-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2008-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-8-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://image.tmdb.org/t/p/w2009-poster_path",
+                }
+              }
+              style={
+                {
+                  "height": 88,
+                  "marginRight": 8,
+                  "width": 64,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  {
+                    "color": "black",
+                    "flexShrink": 1,
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                mock-9-title
+              </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "color": "#444",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6.5
+                   
+                </Text>
+                <Text
+                  style={
+                    {
+                      "color": "grey",
+                    }
+                  }
+                >
+                  (
+                  711
+                  )
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "height": 0,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;
