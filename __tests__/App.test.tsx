@@ -3,13 +3,13 @@ import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
 import {http, HttpResponse} from 'msw';
 import {setupServer} from 'msw/node';
-import {useGetMoviesQuery} from '../src/apiSlice';
+import {useGetMoviesQuery} from '@src/apiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
-import {store} from '../src/store';
+import {store} from '@src/store';
 import {Provider} from 'react-redux';
 
-import data from '../__tests__/StubMovieListResponseResult.json';
+import data from './StubMovieListResponseResult.json';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
