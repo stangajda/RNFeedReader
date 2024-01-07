@@ -16,12 +16,16 @@ function wrapper({children}: {children: ReactNode}) {
 }
 
 const server = setupServer();
-
 beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe('check movie list service', () => {
+  beforeEach(() => {
+    store.dispatch(apiSlice.util.resetApiState());
+  });
+
+  afterEach(() => server.resetHandlers());
+
   describe('when successful json data', () => {
     const endpointName = 'getMovies';
 
@@ -31,10 +35,6 @@ describe('check movie list service', () => {
           return HttpResponse.json(data, {status: 200});
         }),
       );
-    });
-
-    beforeEach(() => {
-      store.dispatch(apiSlice.util.resetApiState());
     });
 
     it('it should get successful response match mapped object', async () => {
@@ -74,10 +74,6 @@ describe('check movie list service', () => {
           return HttpResponse.json({error: 'Not Authorized'}, {status: 404});
         }),
       );
-    });
-
-    beforeEach(() => {
-      store.dispatch(apiSlice.util.resetApiState());
     });
 
     it('it should get failed response', async () => {
