@@ -33,6 +33,10 @@ describe('check movie list service', () => {
       );
     });
 
+    beforeEach(() => {
+      store.dispatch(apiSlice.util.resetApiState());
+    });
+
     it('it should get successful response match mapped object', async () => {
       const {result} = renderHook(() => useGetMoviesQuery({}), {
         wrapper,
@@ -72,8 +76,11 @@ describe('check movie list service', () => {
       );
     });
 
-    it('it should get failed response', async () => {
+    beforeEach(() => {
       store.dispatch(apiSlice.util.resetApiState());
+    });
+
+    it('it should get failed response', async () => {
       const {result} = renderHook(() => useGetMoviesQuery({}), {
         wrapper,
       });
@@ -97,6 +104,11 @@ describe('check movie list service', () => {
         isError: true,
         currentData: undefined,
         isFetching: false,
+      });
+
+      expect(result.current.error).toEqual({
+        status: 404,
+        data: {error: 'Not Authorized'},
       });
     });
   });
