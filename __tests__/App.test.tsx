@@ -1,13 +1,13 @@
 import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
-import {http, HttpResponse} from 'msw';
-import {setupServer} from 'msw/node';
+import {mockResponse} from './helpers/server';
 import {apiSlice, useGetMoviesQuery} from '@src/apiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
 import {store} from '@src/store';
 import {Provider} from 'react-redux';
+import {setupMockServer} from './helpers/server';
 
 import data from './StubMovieListResponseResult.json';
 
@@ -15,26 +15,18 @@ function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
-const server = setupServer();
-beforeAll(() => server.listen());
-afterAll(() => server.close());
-
 describe('check movie list service', () => {
+  setupMockServer();
+
   beforeEach(() => {
     store.dispatch(apiSlice.util.resetApiState());
   });
-
-  afterEach(() => server.resetHandlers());
 
   describe('when successful json data', () => {
     const endpointName = 'getMovies';
 
     beforeAll(() => {
-      server.use(
-        http.get('*/trending/movie/day', () => {
-          return HttpResponse.json(data, {status: 200});
-        }),
-      );
+      mockResponse(data);
     });
 
     it('it should get successful response match mapped object', async () => {
@@ -67,13 +59,10 @@ describe('check movie list service', () => {
 
   describe('when failure error code', () => {
     const endpointName = 'getMovies';
+    const error = 'Not Authorized';
 
     beforeAll(() => {
-      server.use(
-        http.get('*/trending/movie/day', () => {
-          return HttpResponse.json({error: 'Not Authorized'}, {status: 404});
-        }),
-      );
+      mockResponse({error}, 404);
     });
 
     it('it should get failed response', async () => {
@@ -103,8 +92,8 @@ describe('check movie list service', () => {
       });
 
       expect(result.current.error).toEqual({
+        data: {error},
         status: 404,
-        data: {error: 'Not Authorized'},
       });
     });
   });
