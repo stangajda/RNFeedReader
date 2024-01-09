@@ -1,6 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App snapshot test renders correctly 1`] = `
+exports[`check movies list view to match recorded snapshot when loading success and error at the same time return false it should match movie list empty image json 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  />
+</RCTSafeAreaView>
+`;
+
+exports[`check movies list view to match recorded snapshot when movies list is empty it should match movie list empty image json 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  >
+    <RCTScrollView
+      data={[]}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`check movies list view to match recorded snapshot when movies list is error it should match movie list error image json 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  >
+    <Text>
+      stub error message
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`check movies list view to match recorded snapshot when movies list is loaded it should match movie list loaded image json 1`] = `
 <RCTSafeAreaView
   style={
     {
@@ -1040,6 +1119,26 @@ exports[`App snapshot test renders correctly 1`] = `
         />
       </View>
     </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`check movies list view to match recorded snapshot when movies list is loading it should match movie list loading image json 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "padding": 24,
+      }
+    }
+  >
+    <ActivityIndicator />
   </View>
 </RCTSafeAreaView>
 `;
