@@ -11,15 +11,13 @@ function wrapper({children}: {children: ReactNode}) {
 
 jest.mock('@src/apiSlice', () => {
   const dataResult = require('./StubMovieListResponseResult.json');
-  const originalModule = jest.requireActual('@src/apiSlice');
   return {
-    ...originalModule,
     apiSlice: {
-      ...originalModule.apiSlice,
       reducerPath: 'api',
-      reducer: jest.fn(() => ({})),
+      reducer: () => ({}),
+      middleware: () => (next: any) => (action: any) => next(action),
     },
-    useGetMoviesQuery: jest.fn().mockReturnValue({
+    useGetMoviesQuery: jest.fn().mockReturnValueOnce({
       data: dataResult,
       isLoading: false,
       isSuccess: true,
