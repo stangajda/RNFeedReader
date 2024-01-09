@@ -19,11 +19,13 @@ jest.mock('@src/apiSlice', () => {
   };
 });
 
+const mockUseGetMoviesQuery = useGetMoviesQuery as jest.Mock;
+
 describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is loaded', () => {
     beforeAll(() => {
       const dataResult = require('./StubMovieListResponseResult.json');
-      (useGetMoviesQuery as jest.Mock).mockReturnValueOnce({
+      mockUseGetMoviesQuery.mockReturnValueOnce({
         data: dataResult,
         isLoading: false,
         isSuccess: true,
@@ -38,7 +40,7 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when movies list is loading', () => {
     beforeAll(() => {
-      (useGetMoviesQuery as jest.Mock).mockReturnValueOnce({
+      mockUseGetMoviesQuery.mockReturnValueOnce({
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -52,7 +54,7 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when movies list is error', () => {
     beforeAll(() => {
-      (useGetMoviesQuery as jest.Mock).mockReturnValueOnce({
+      mockUseGetMoviesQuery.mockReturnValueOnce({
         isLoading: false,
         isSuccess: false,
         isError: true,
@@ -66,7 +68,7 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when movies list is empty', () => {
     beforeAll(() => {
-      (useGetMoviesQuery as jest.Mock).mockReturnValueOnce({
+      mockUseGetMoviesQuery.mockReturnValueOnce({
         data: [],
         isLoading: false,
         isSuccess: true,
@@ -81,7 +83,7 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when loading success and error at the same time return false', () => {
     beforeAll(() => {
-      (useGetMoviesQuery as jest.Mock).mockReturnValueOnce({
+      mockUseGetMoviesQuery.mockReturnValueOnce({
         data: null,
         isLoading: false,
         isSuccess: false,
