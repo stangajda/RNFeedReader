@@ -11,12 +11,10 @@ function wrapper({children}: {children: ReactNode}) {
 }
 
 jest.mock('@src/apiSlice', () => {
+  const originalModule = jest.requireActual('@src/apiSlice');
   return {
-    apiSlice: {
-      reducerPath: 'api',
-      reducer: () => ({}),
-      middleware: () => (next: any) => (action: any) => next(action),
-    },
+    __esModule: true,
+    ...originalModule,
     useGetMoviesQuery: jest.fn(),
   };
 });
