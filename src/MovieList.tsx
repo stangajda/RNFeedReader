@@ -1,10 +1,10 @@
 import React from 'react';
-import {MOVIE_API_CONFIG} from './config';
+import {MOVIE_API_CONFIG} from './Config';
 
 import {FlatList, View, Text, Image} from 'react-native';
 
-import Styles from './styles';
-import {Movie} from './model';
+import Styles from './Styles';
+import {Movie} from './Model';
 
 type Props = {
   movieList: Movie[];

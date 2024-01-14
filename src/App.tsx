@@ -7,12 +7,12 @@
 
 import React from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
-import Styles from './styles';
+import Styles from './Styles';
 import MovieList from './MovieList';
 
-import {Movie} from './model';
+import {Movie} from './Model';
 
-import {useGetMoviesQuery} from './apiSlice';
+import {useGetMoviesQuery} from './ApiSlice';
 
 function App(): React.JSX.Element {
   const {data, isLoading, isSuccess, isError, error} = useGetMoviesQuery({});
