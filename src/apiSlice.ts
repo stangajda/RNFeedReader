@@ -13,7 +13,4 @@ export const apiSlice = createApi({
   }),
 });
 
-console.log(MOVIE_API_CONFIG.baseUrl);
-console.log(MOVIE_API_CONFIG.trendingUrl());
-
 export const {useGetMoviesQuery} = apiSlice;

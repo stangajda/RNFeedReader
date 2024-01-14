@@ -1,4 +1,6 @@
 import React from 'react';
+import {MOVIE_API_CONFIG} from './config';
+
 import {FlatList, View, Text, Image} from 'react-native';
 
 import Styles from './styles';
@@ -12,7 +14,7 @@ const MovieList: React.FC<Props> = ({movieList}) => {
   const renderItem = ({item}: {item: Movie}) => (
     <View style={Styles.listItem}>
       <Image
-        source={{uri: `https://image.tmdb.org/t/p/w200${item.poster_path}`}}
+        source={{uri: `${MOVIE_API_CONFIG.movieImageUrl()}${item.poster_path}`}}
         style={Styles.image}
       />
       <View style={Styles.rightItemContainer}>
