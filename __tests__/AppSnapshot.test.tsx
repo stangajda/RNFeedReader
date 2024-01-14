@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import App from '@src/App';
 import {Provider} from 'react-redux';
 import {store} from '@src/Store';
-import {useGetMoviesQuery} from '@src/ApiSlice';
+import {useGetMoviesQuery} from '@src/apiSlice';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
