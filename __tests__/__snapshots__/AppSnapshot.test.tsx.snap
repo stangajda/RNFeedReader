@@ -73,7 +73,7 @@ exports[`check movies list view to match recorded snapshot when movies list is e
     }
   >
     <Text>
-      stub error message
+      Error: stub error message
     </Text>
   </View>
 </RCTSafeAreaView>

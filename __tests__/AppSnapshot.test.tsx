@@ -6,6 +6,8 @@ import {Provider} from 'react-redux';
 import {store} from '@src/Store';
 import {useGetMoviesQuery} from '@src/ApiSlice';
 import {Movies} from '@src/Model';
+import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
+import {SerializedError} from '@reduxjs/toolkit';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
@@ -16,7 +18,7 @@ interface MoviesQueryResult {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  error: any;
+  error: FetchBaseQueryError | SerializedError | undefined;
 }
 
 jest.mock('@src/apiSlice', () => {
@@ -42,7 +44,7 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: true,
         isError: false,
-        error: null,
+        error: undefined,
       });
     });
     it('it should match movie list loaded image json', () => {
@@ -56,7 +58,7 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: true,
         isSuccess: false,
         isError: false,
-        error: null,
+        error: undefined,
       });
     });
     it('it should match movie list loading image json', () => {
@@ -70,7 +72,7 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: false,
         isError: true,
-        error: 'stub error message',
+        error: new Error('stub error message'),
       });
     });
     it('it should match movie list error image json', () => {
@@ -84,7 +86,7 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: true,
         isError: false,
-        error: null,
+        error: undefined,
       });
     });
     it('it should match movie list empty image json', () => {
@@ -98,7 +100,7 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: false,
         isError: false,
-        error: null,
+        error: undefined,
       });
     });
     it('it should match movie list empty image json', () => {
