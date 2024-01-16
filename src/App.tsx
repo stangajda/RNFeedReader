@@ -12,7 +12,7 @@ import MovieList from './MovieList';
 
 import {Movie} from './Model';
 
-import {useGetMoviesQuery} from './ApiSlice';
+import {useGetMoviesQuery} from './apiSlice';
 import {IMoviesQueryResult} from './interfaces';
 
 function App(): React.JSX.Element {
