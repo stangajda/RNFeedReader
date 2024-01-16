@@ -5,20 +5,10 @@ import App from '@src/App';
 import {Provider} from 'react-redux';
 import {store} from '@src/Store';
 import {useGetMoviesQuery} from '@src/ApiSlice';
-import {Movies} from '@src/Model';
-import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
-import {SerializedError} from '@reduxjs/toolkit';
+import {IMoviesQueryResult} from '@src/interfaces';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
-}
-
-interface MoviesQueryResult {
-  data?: Movies;
-  isLoading: boolean;
-  isSuccess: boolean;
-  isError: boolean;
-  error?: FetchBaseQueryError | SerializedError;
 }
 
 jest.mock('@src/apiSlice', () => {
@@ -33,12 +23,13 @@ jest.mock('@src/apiSlice', () => {
   };
 });
 
-const mockUseGetMoviesQuery = useGetMoviesQuery as jest.Mock<MoviesQueryResult>;
+const mockUseGetMoviesQuery =
+  useGetMoviesQuery as jest.Mock<IMoviesQueryResult>;
 
 describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is loaded', () => {
     beforeAll(() => {
-      const dataResult: Movies = require('./StubMovieListResponseResult.json');
+      const dataResult = require('./StubMovieListResponseResult.json');
       mockUseGetMoviesQuery.mockReturnValueOnce({
         data: dataResult,
         isLoading: false,
