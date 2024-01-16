@@ -5,6 +5,7 @@ import App from '@src/App';
 import {Provider} from 'react-redux';
 import {store} from '@src/Store';
 import {useGetMoviesQuery} from '@src/ApiSlice';
+import {Movies} from '@src/Model';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
@@ -24,7 +25,7 @@ const mockUseGetMoviesQuery = useGetMoviesQuery as jest.Mock;
 describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is loaded', () => {
     beforeAll(() => {
-      const dataResult = require('./StubMovieListResponseResult.json');
+      const dataResult: Movies = require('./StubMovieListResponseResult.json');
       mockUseGetMoviesQuery.mockReturnValueOnce({
         data: dataResult,
         isLoading: false,
