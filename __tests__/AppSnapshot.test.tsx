@@ -11,16 +11,27 @@ function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
 }
 
+interface MoviesQueryResult {
+  data?: Movies;
+  isLoading: boolean;
+  isSuccess: boolean;
+  isError: boolean;
+  error: any;
+}
+
 jest.mock('@src/apiSlice', () => {
   const originalModule = jest.requireActual('@src/apiSlice');
   return {
     __esModule: true,
     ...originalModule,
-    useGetMoviesQuery: jest.fn(),
+    useGetMoviesQuery: jest.fn<
+      ReturnType<typeof useGetMoviesQuery>,
+      Parameters<typeof useGetMoviesQuery>
+    >(),
   };
 });
 
-const mockUseGetMoviesQuery = useGetMoviesQuery as jest.Mock;
+const mockUseGetMoviesQuery = useGetMoviesQuery as jest.Mock<MoviesQueryResult>;
 
 describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is loaded', () => {
@@ -70,7 +81,6 @@ describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is empty', () => {
     beforeAll(() => {
       mockUseGetMoviesQuery.mockReturnValueOnce({
-        data: [],
         isLoading: false,
         isSuccess: true,
         isError: false,
@@ -85,7 +95,6 @@ describe('check movies list view to match recorded snapshot', () => {
   describe('when loading success and error at the same time return false', () => {
     beforeAll(() => {
       mockUseGetMoviesQuery.mockReturnValueOnce({
-        data: null,
         isLoading: false,
         isSuccess: false,
         isError: false,
