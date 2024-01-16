@@ -18,7 +18,7 @@ interface MoviesQueryResult {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  error: FetchBaseQueryError | SerializedError | undefined;
+  error?: FetchBaseQueryError | SerializedError;
 }
 
 jest.mock('@src/apiSlice', () => {
@@ -44,7 +44,6 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: true,
         isError: false,
-        error: undefined,
       });
     });
     it('it should match movie list loaded image json', () => {
@@ -58,7 +57,6 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: true,
         isSuccess: false,
         isError: false,
-        error: undefined,
       });
     });
     it('it should match movie list loading image json', () => {
@@ -86,7 +84,6 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: true,
         isError: false,
-        error: undefined,
       });
     });
     it('it should match movie list empty image json', () => {
@@ -100,7 +97,6 @@ describe('check movies list view to match recorded snapshot', () => {
         isLoading: false,
         isSuccess: false,
         isError: false,
-        error: undefined,
       });
     });
     it('it should match movie list empty image json', () => {
