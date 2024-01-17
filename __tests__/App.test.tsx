@@ -1,15 +1,16 @@
 import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
-import {mockResponse} from './helpers/server';
-import {apiSlice, useGetMoviesQuery} from '@src/apiSlice';
+import {mockMoviesListResponse} from './helpers/server';
+import {apiSlice, useGetMoviesQuery} from '@src/ApiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
 import {store} from '@src/Store';
 import {Provider} from 'react-redux';
 import {setupMockServer} from './helpers/server';
 
-import data from './StubMovieListResponseResult.json';
+import {Movies} from '@src/Model';
+import {IMoviesResponse} from '@src/interfaces';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
@@ -17,6 +18,7 @@ function wrapper({children}: {children: ReactNode}) {
 
 describe('check movie list service', () => {
   setupMockServer();
+  const data: Movies = require('./StubMovieListResponseResult.json');
 
   beforeEach(() => {
     store.dispatch(apiSlice.util.resetApiState());
@@ -24,9 +26,13 @@ describe('check movie list service', () => {
 
   describe('when successful json data', () => {
     const endpointName = 'getMovies';
+    const mockedMoviesResponse: IMoviesResponse = {
+      data,
+      status: 200,
+    };
 
     beforeAll(() => {
-      mockResponse(data);
+      mockMoviesListResponse(mockedMoviesResponse);
     });
 
     it('it should get successful response match mapped object', async () => {
@@ -59,10 +65,15 @@ describe('check movie list service', () => {
 
   describe('when failure error code', () => {
     const endpointName = 'getMovies';
-    const error = 'Not Authorized';
+    const error = Error('stub error message');
+
+    const mockedMoviesResponse: IMoviesResponse = {
+      error: {error},
+      status: 404,
+    };
 
     beforeAll(() => {
-      mockResponse({error}, 404);
+      mockMoviesListResponse(mockedMoviesResponse);
     });
 
     it('it should get failed response', async () => {
@@ -92,7 +103,7 @@ describe('check movie list service', () => {
       });
 
       expect(result.current.error).toEqual({
-        data: {error},
+        data: {error: error.message},
         status: 404,
       });
     });
