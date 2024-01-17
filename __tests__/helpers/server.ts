@@ -1,5 +1,6 @@
 import {http, HttpResponse} from 'msw';
 import {setupServer} from 'msw/node';
+import {IMoviesResponse} from '@src/interfaces';
 
 const server = setupServer();
 
@@ -9,10 +10,11 @@ export function setupMockServer() {
   afterEach(() => server.resetHandlers());
 }
 
-export function mockResponse(data: any, status: number = 200) {
+export function mockResponse(response: IMoviesResponse) {
+  const {result, status} = response;
   server.use(
     http.get('*/trending/movie/day', () => {
-      return HttpResponse.json(data, {status});
+      return HttpResponse.json(result, {status});
     }),
   );
 }

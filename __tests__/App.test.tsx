@@ -9,7 +9,9 @@ import {store} from '@src/Store';
 import {Provider} from 'react-redux';
 import {setupMockServer} from './helpers/server';
 
-import data from './StubMovieListResponseResult.json';
+//import movies from './StubMovieListResponseResult.json';
+import {Movies} from '@src/Model';
+import {IMoviesResponse} from '@src/interfaces';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
@@ -17,6 +19,7 @@ function wrapper({children}: {children: ReactNode}) {
 
 describe('check movie list service', () => {
   setupMockServer();
+  const data: Movies = require('./StubMovieListResponseResult.json');
 
   beforeEach(() => {
     store.dispatch(apiSlice.util.resetApiState());
@@ -24,9 +27,13 @@ describe('check movie list service', () => {
 
   describe('when successful json data', () => {
     const endpointName = 'getMovies';
+    const mockedMoviesResponse: IMoviesResponse = {
+      result: data,
+      status: 200,
+    };
 
     beforeAll(() => {
-      mockResponse(data);
+      mockResponse(mockedMoviesResponse);
     });
 
     it('it should get successful response match mapped object', async () => {
@@ -59,10 +66,15 @@ describe('check movie list service', () => {
 
   describe('when failure error code', () => {
     const endpointName = 'getMovies';
-    const error = 'Not Authorized';
+    const error = 'stub error message';
+
+    const mockedMoviesResponse: IMoviesResponse = {
+      result: {error},
+      status: 404,
+    };
 
     beforeAll(() => {
-      mockResponse({error}, 404);
+      mockResponse(mockedMoviesResponse);
     });
 
     it('it should get failed response', async () => {

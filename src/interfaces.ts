@@ -9,3 +9,8 @@ export interface IMoviesQueryResult {
   isError: boolean;
   error?: FetchBaseQueryError | SerializedError;
 }
+
+export interface IMoviesResponse {
+  result: Movies | {error: string};
+  status: number;
+}
