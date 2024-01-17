@@ -1,5 +1,5 @@
 import React from 'react';
-import {MOVIE_API_CONFIG} from './Config';
+import {MOVIE_API_CONFIG} from './config';
 
 import {FlatList, View, Text, Image} from 'react-native';
 

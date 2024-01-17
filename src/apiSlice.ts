@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {MOVIE_API_CONFIG} from './Config';
+import {MOVIE_API_CONFIG} from './config';
 import {Movies} from './Model';
 
 export const apiSlice = createApi({
