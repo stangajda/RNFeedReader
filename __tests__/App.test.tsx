@@ -1,7 +1,7 @@
 import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
-import {mockResponse} from './helpers/server';
+import {mockMoviesListResponse} from './helpers/server';
 import {apiSlice, useGetMoviesQuery} from '@src/ApiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
@@ -32,7 +32,7 @@ describe('check movie list service', () => {
     };
 
     beforeAll(() => {
-      mockResponse(mockedMoviesResponse);
+      mockMoviesListResponse(mockedMoviesResponse);
     });
 
     it('it should get successful response match mapped object', async () => {
@@ -73,7 +73,7 @@ describe('check movie list service', () => {
     };
 
     beforeAll(() => {
-      mockResponse(mockedMoviesResponse);
+      mockMoviesListResponse(mockedMoviesResponse);
     });
 
     it('it should get failed response', async () => {

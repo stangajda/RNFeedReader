@@ -13,7 +13,6 @@ const movieListUrl: string = createUrl(API_BASE_URL, API_TRENDING_PATH, {
 });
 
 const moviePathUrl: string = createPathUrl(movieListUrl, API_BASE_URL);
-
 const movieImageUrl: string = createUrl(API_IMAGE_BASE_URL, API_IMAGE_SIZE, {});
 
 export const MOVIE_API_CONFIG: MovieApiConfig = {
