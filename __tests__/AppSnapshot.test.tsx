@@ -1,15 +1,9 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
-import App from '@src/App';
-import {Provider} from 'react-redux';
-import {store} from '@src/Store';
+import {ReduxApp} from 'index';
 import {useGetMoviesQuery} from '@src/ApiSlice';
 import {IMoviesQueryResult} from '@src/interfaces';
-
-function wrapper({children}: {children: ReactNode}) {
-  return <Provider store={store}>{children}</Provider>;
-}
 
 jest.mock('@src/apiSlice', () => {
   const originalModule = jest.requireActual('@src/apiSlice');
@@ -38,7 +32,7 @@ describe('check movies list view to match recorded snapshot', () => {
       });
     });
     it('it should match movie list loaded image json', () => {
-      const tree = renderer.create(wrapper({children: <App />})).toJSON();
+      const tree = renderer.create(<ReduxApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -51,7 +45,7 @@ describe('check movies list view to match recorded snapshot', () => {
       });
     });
     it('it should match movie list loading image json', () => {
-      const tree = renderer.create(wrapper({children: <App />})).toJSON();
+      const tree = renderer.create(<ReduxApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -65,7 +59,7 @@ describe('check movies list view to match recorded snapshot', () => {
       });
     });
     it('it should match movie list error image json', () => {
-      const tree = renderer.create(wrapper({children: <App />})).toJSON();
+      const tree = renderer.create(<ReduxApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -78,7 +72,7 @@ describe('check movies list view to match recorded snapshot', () => {
       });
     });
     it('it should match movie list empty image json', () => {
-      const tree = renderer.create(wrapper({children: <App />})).toJSON();
+      const tree = renderer.create(<ReduxApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -91,7 +85,7 @@ describe('check movies list view to match recorded snapshot', () => {
       });
     });
     it('it should match movie list empty image json', () => {
-      const tree = renderer.create(wrapper({children: <App />})).toJSON();
+      const tree = renderer.create(<ReduxApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
