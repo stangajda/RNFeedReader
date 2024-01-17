@@ -2,6 +2,10 @@ import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
 import {SerializedError} from '@reduxjs/toolkit';
 import {Movies} from './Model';
 
+interface IError {
+  error: Error;
+}
+
 export interface IMoviesQueryResult {
   data?: Movies;
   isLoading: boolean;
@@ -11,6 +15,7 @@ export interface IMoviesQueryResult {
 }
 
 export interface IMoviesResponse {
-  result: Movies | {error: string};
+  data?: Movies;
+  error?: IError;
   status: number;
 }

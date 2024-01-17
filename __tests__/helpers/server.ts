@@ -11,7 +11,10 @@ export function setupMockServer() {
 }
 
 export function mockResponse(response: IMoviesResponse) {
-  const {result, status} = response;
+  const {data, error, status} = response;
+  const errorMessage = error ? error.error.message : undefined;
+  const result = errorMessage ? {error: errorMessage} : data;
+  console.log('result', result);
   server.use(
     http.get('*/trending/movie/day', () => {
       return HttpResponse.json(result, {status});

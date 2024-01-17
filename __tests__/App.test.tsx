@@ -9,7 +9,6 @@ import {store} from '@src/Store';
 import {Provider} from 'react-redux';
 import {setupMockServer} from './helpers/server';
 
-//import movies from './StubMovieListResponseResult.json';
 import {Movies} from '@src/Model';
 import {IMoviesResponse} from '@src/interfaces';
 
@@ -28,7 +27,7 @@ describe('check movie list service', () => {
   describe('when successful json data', () => {
     const endpointName = 'getMovies';
     const mockedMoviesResponse: IMoviesResponse = {
-      result: data,
+      data,
       status: 200,
     };
 
@@ -66,10 +65,10 @@ describe('check movie list service', () => {
 
   describe('when failure error code', () => {
     const endpointName = 'getMovies';
-    const error = 'stub error message';
+    const error = Error('stub error message');
 
     const mockedMoviesResponse: IMoviesResponse = {
-      result: {error},
+      error: {error},
       status: 404,
     };
 
@@ -104,7 +103,7 @@ describe('check movie list service', () => {
       });
 
       expect(result.current.error).toEqual({
-        data: {error},
+        data: {error: error.message},
         status: 404,
       });
     });
