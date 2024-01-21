@@ -26,7 +26,14 @@ import {IMoviesQueryResult} from './interfaces';
 //   return mockQueryResult;
 // }
 
-function useGetMoviesQueryContainer(): IMoviesQueryResult {
-  return useGetMoviesQuery({});
+interface IContainer {
+  useGetMoviesQueryContainer: IMoviesQueryResult;
 }
-export default useGetMoviesQueryContainer;
+
+function useContainer(): IContainer {
+  return {
+    useGetMoviesQueryContainer: useGetMoviesQuery({}),
+  };
+}
+
+export default useContainer;
