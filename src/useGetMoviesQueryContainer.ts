@@ -4,7 +4,7 @@
 import {useGetMoviesQuery} from './apiSlice';
 import {IMoviesQueryResult} from './interfaces';
 
-// function useGetMoviesQuery2(): IMoviesQueryResult {
+// function useGetMoviesQueryContainer(): IMoviesQueryResult {
 //   const mockQueryResult: IMoviesQueryResult = {
 //     isLoading: false,
 //     isSuccess: true,
@@ -26,7 +26,7 @@ import {IMoviesQueryResult} from './interfaces';
 //   return mockQueryResult;
 // }
 
-function useGetMoviesQuery2(): IMoviesQueryResult {
+function useGetMoviesQueryContainer(): IMoviesQueryResult {
   return useGetMoviesQuery({});
 }
-export default useGetMoviesQuery2;
+export default useGetMoviesQueryContainer;
