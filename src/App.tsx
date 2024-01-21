@@ -12,12 +12,13 @@ import MovieList from './MovieList';
 
 import {Movie} from './Model';
 
-import {useGetMoviesQuery} from './apiSlice';
+import useGetMoviesQuery2 from './useGetMoviesQuery2';
+
 import {IMoviesQueryResult} from './interfaces';
 
 function App(): React.JSX.Element {
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    useGetMoviesQuery({});
+    useGetMoviesQuery2();
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;

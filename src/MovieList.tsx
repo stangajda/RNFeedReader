@@ -32,7 +32,7 @@ const MovieList: React.FC<Props> = ({movieList}) => {
   return (
     <FlatList
       data={movieList}
-      keyExtractor={({id}) => id}
+      keyExtractor={({id}) => id.toString()}
       renderItem={renderItem}
     />
   );
