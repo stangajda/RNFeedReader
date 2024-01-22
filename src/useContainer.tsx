@@ -2,7 +2,7 @@
 // import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 // import { Movies } from './Model';
 import {useGetMoviesQuery} from './apiSlice';
-import {IMoviesQueryResult} from './interfaces';
+import {IContainer} from './interfaces';
 
 // function useGetMoviesQueryContainer(): IMoviesQueryResult {
 //   const mockQueryResult: IMoviesQueryResult = {
@@ -26,14 +26,10 @@ import {IMoviesQueryResult} from './interfaces';
 //   return mockQueryResult;
 // }
 
-interface IContainer {
-  useGetMoviesQueryContainer: IMoviesQueryResult;
-}
-
 function useContainer(): IContainer {
   return {
     useGetMoviesQueryContainer: useGetMoviesQuery({}),
   };
 }
 
-export default useContainer;
+export const useContainer2 = () => useContainer();
