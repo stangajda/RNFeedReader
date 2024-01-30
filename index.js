@@ -5,9 +5,12 @@ import {name as appName} from './app.json';
 
 import {store} from './src/Store';
 import {Provider} from 'react-redux';
+import {MoviesProvider} from './src/MoviesProvider';
 export const ReduxApp = () => (
   <Provider store={store}>
-    <App />
+    <MoviesProvider>
+      <App />
+    </MoviesProvider>
   </Provider>
 );
 
