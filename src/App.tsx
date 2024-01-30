@@ -1,24 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
+import React, {useContext} from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './Styles';
 import MovieList from './MovieList';
+import {MoviesContext} from './MoviesContext';
 
 import {Movie} from './Model';
-
-//import {useGetMoviesQuery} from './apiSlice';
 import {IMoviesQueryResult} from './interfaces';
-import {useMovies} from './MoviesProvider';
 
 function App(): React.JSX.Element {
+  const {useGetMoviesQuery} = useContext(MoviesContext);
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    useMovies();
+    useGetMoviesQuery();
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;

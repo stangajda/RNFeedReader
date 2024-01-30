@@ -1,22 +1,16 @@
-import React, {createContext, useContext} from 'react';
-import {IMoviesQueryResult} from './interfaces';
+import React from 'react';
 import {useGetMoviesQuery} from './apiSlice';
+import {MoviesContext} from './MoviesContext';
 
-const MoviesContext = createContext<IMoviesQueryResult | undefined>(undefined);
+interface MoviesQueryProviderProps {
+  children: React.ReactNode;
+}
 
-export const useMovies = () => {
-  const context = useContext(MoviesContext);
-  if (!context) {
-    throw new Error('useMovies must be used within a MoviesProvider');
-  }
-  return context;
-};
-
-export const MoviesProvider: React.FC = ({children}) => {
+export function MoviesProvider({children}: MoviesQueryProviderProps) {
   const queryResult = useGetMoviesQuery({});
   return (
-    <MoviesContext.Provider value={queryResult}>
+    <MoviesContext.Provider value={{useGetMoviesQuery: () => queryResult}}>
       {children}
     </MoviesContext.Provider>
   );
-};
+}
