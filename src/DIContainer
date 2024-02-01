@@ -1,0 +1,48 @@
+class SingletonMockContainer {
+  constructor() {
+    this.mockInstances = {};
+  }
+
+  // Register a mock with a factory function
+  register(key, factoryFn) {
+    this.mockInstances[key] = {
+      factoryFn: factoryFn,
+      instance: null,
+    };
+  }
+
+  // Resolve a singleton instance of a mock
+  resolve(key) {
+    const mock = this.mockInstances[key];
+    if (!mock) {
+      throw new Error(`Mock for ${key} not found`);
+    }
+    if (!mock.instance) {
+      mock.instance = mock.factoryFn();
+    }
+    return mock.instance;
+  }
+}
+
+// Example usage:
+
+// Mock implementations factories
+const mockSomeServiceFactory = () => ({
+  // Mock methods and properties
+});
+const mockAnotherServiceFactory = () => ({
+  // Mock methods and properties
+});
+
+// Instantiate the singleton mock container
+const singletonMockContainer = new SingletonMockContainer();
+
+// Register mocks with their factory functions
+singletonMockContainer.register('SomeService', mockSomeServiceFactory);
+singletonMockContainer.register('AnotherService', mockAnotherServiceFactory);
+
+// Resolve mocks in tests
+const someServiceMock1 = singletonMockContainer.resolve('SomeService');
+const someServiceMock2 = singletonMockContainer.resolve('SomeService');
+
+console.log(someServiceMock1 === someServiceMock2); // true, both are the same instance
