@@ -12,12 +12,17 @@ import MovieList from './MovieList';
 
 import {Movie} from './Model';
 
-import {useGetMoviesQuery} from './apiSlice';
+//import {useGetMoviesQuery} from './apiSlice';
 import {IMoviesQueryResult} from './interfaces';
 
+import {Injection} from './DIContainer';
+import {useHook} from './useHook';
+
 function App(): React.JSX.Element {
-  const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    useGetMoviesQuery({});
+  useHook();
+  const injection = Injection.getInstance();
+  const {data, isLoading, isSuccess, isError, error} =
+    injection.resolve<IMoviesQueryResult>('IMoviesQueryResult');
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;
