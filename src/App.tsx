@@ -7,10 +7,22 @@ import {MoviesContext} from './MoviesContext';
 import {Movie} from './Model';
 import {IMoviesQueryResult} from './interfaces';
 
+import {Injection} from './DIContainer';
+import {useHook} from './useHook';
+
 function App(): React.JSX.Element {
-  const {useGetMoviesQuery} = useContext(MoviesContext);
+  //Injection.resolver.register('com1', useGetMoviesQuery({}));
+  //const {useGetMoviesQuery} = useContext(MoviesContext);
+  // const injection = Injection.getInstance();
+  // const queryResult = useGetMoviesQuery({});
+  // injection.register<IMoviesQueryResult>(
+  //   'IMoviesQueryResult',
+  //   () => queryResult,
+  // );
+  useHook();
+  const injection = Injection.getInstance();
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    useGetMoviesQuery();
+    injection.resolve('IMoviesQueryResult');
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;

@@ -1,9 +1,22 @@
-class Injection {
+export class Injection {
   private static main: Injection;
   private container: {[key: string]: any} = {};
-  static resolver = Injection.main.container;
+  //static resolver = Injection.main.container;
 
-  register(key: string, factoryFn: () => any) {
+  public static getInstance(): Injection {
+    if (!Injection.main) {
+      Injection.main = new Injection();
+    }
+
+    return Injection.main;
+  }
+
+  // static get resolver() {
+  //   const mainInstance = Injection.getInstance(); // Ensure the main instance is created
+  //   return mainInstance.container;
+  // }
+
+  register<T>(key: string, factoryFn: () => T) {
     this.container[key] = {
       factoryFn: factoryFn,
       instance: null,
@@ -21,16 +34,3 @@ class Injection {
     return object.instance;
   }
 }
-
-const mockSomeServiceFactory = () => ({});
-const mockAnotherServiceFactory = () => ({});
-
-const injection = new Injection();
-
-injection.register('SomeService', mockSomeServiceFactory);
-injection.register('AnotherService', mockAnotherServiceFactory);
-
-const someServiceMock1 = injection.resolve('SomeService');
-const someServiceMock2 = injection.resolve('SomeService');
-
-console.log(someServiceMock1 === someServiceMock2); // true, both are the same instance
