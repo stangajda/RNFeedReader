@@ -1,13 +1,17 @@
+interface Container<T> {
+  [interfaceName: string]: T;
+}
+
 export class Injection {
-  private static main: Injection;
-  private container: {[interfaceName: string]: any} = {};
+  private static instance: Injection;
+  private container: Container<any> = {};
 
   public static getInstance(): Injection {
-    if (!Injection.main) {
-      Injection.main = new Injection();
+    if (!Injection.instance) {
+      Injection.instance = new Injection();
     }
 
-    return Injection.main;
+    return Injection.instance;
   }
 
   register<T>(interfaceName: string, service: () => T) {
