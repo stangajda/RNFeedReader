@@ -1,5 +1,5 @@
 interface Container<T> {
-  [interfaceName: string]: T;
+  [interfaceName: symbol]: T;
 }
 
 export class Injection {
@@ -14,17 +14,19 @@ export class Injection {
     return Injection.instance;
   }
 
-  register<T>(interfaceName: string, service: () => T) {
+  register<T>(interfaceName: symbol, service: () => T) {
     this.container[interfaceName] = {
       service: service,
       instance: null,
     };
   }
 
-  resolve<T>(interfaceName: string): T {
+  resolve<T>(interfaceName: symbol): T {
     const object = this.container[interfaceName];
     if (!object) {
-      throw new Error(`Object for Interface Name ${interfaceName} not found`);
+      throw new Error(
+        `Object for Interface Name ${interfaceName.toString()} not found`,
+      );
     }
     if (!object.instance) {
       object.instance = object.service();
