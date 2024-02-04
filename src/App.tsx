@@ -1,14 +1,16 @@
-import React, {useContext} from 'react';
+//import React, {useContext} from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './Styles';
 import MovieList from './MovieList';
-import {MoviesContext} from './MoviesContext';
+//import {MoviesContext} from './MoviesContext';
 
 import {Movie} from './Model';
 import {IMoviesQueryResult} from './interfaces';
 
 import {Injection} from './DIContainer';
 import {useHook} from './useHook';
+
+import {TYPES} from './types';
 
 function App(): React.JSX.Element {
   //Injection.resolver.register('com1', useGetMoviesQuery({}));
@@ -19,10 +21,11 @@ function App(): React.JSX.Element {
   //   'IMoviesQueryResult',
   //   () => queryResult,
   // );
+
   useHook();
   const injection = Injection.getInstance();
-  const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    injection.resolve('IMoviesQueryResult');
+  const {data, isLoading, isSuccess, isError, error} =
+    injection.resolve<IMoviesQueryResult>(TYPES.IMoviesQueryResult);
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;

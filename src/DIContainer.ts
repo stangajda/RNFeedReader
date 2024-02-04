@@ -1,35 +1,35 @@
+interface Container<T> {
+  [interfaceName: symbol]: T;
+}
+
 export class Injection {
-  private static main: Injection;
-  private container: {[key: string]: any} = {};
-  //static resolver = Injection.main.container;
+  private static instance: Injection;
+  private container: Container<any> = {};
 
   public static getInstance(): Injection {
-    if (!Injection.main) {
-      Injection.main = new Injection();
+    if (!Injection.instance) {
+      Injection.instance = new Injection();
     }
 
-    return Injection.main;
+    return Injection.instance;
   }
 
-  // static get resolver() {
-  //   const mainInstance = Injection.getInstance(); // Ensure the main instance is created
-  //   return mainInstance.container;
-  // }
-
-  register<T>(key: string, factoryFn: () => T) {
-    this.container[key] = {
-      factoryFn: factoryFn,
+  register<T>(interfaceName: symbol, service: () => T) {
+    this.container[interfaceName] = {
+      service: service,
       instance: null,
     };
   }
 
-  resolve(key: string) {
-    const object = this.container[key];
+  resolve<T>(interfaceName: symbol): T {
+    const object = this.container[interfaceName];
     if (!object) {
-      throw new Error(`Object for ${key} not found`);
+      throw new Error(
+        `Object for Interface Name ${interfaceName.toString()} not found`,
+      );
     }
     if (!object.instance) {
-      object.instance = object.factoryFn();
+      object.instance = object.service();
     }
     return object.instance;
   }
