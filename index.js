@@ -12,7 +12,7 @@ import {useGetMoviesQuery} from './src/apiSlice';
 
 export const ReduxApp = () => (
   <Provider store={store}>
-    <MoviesProvider>
+    <MoviesProvider container={Injection.getInstance()}>
       <App />
     </MoviesProvider>
   </Provider>

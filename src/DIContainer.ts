@@ -1,8 +1,13 @@
+export interface IInjection {
+  register<T>(interfaceName: symbol, service: () => T): void;
+  resolve<T>(interfaceName: symbol): T;
+}
+
 interface Container<T> {
   [interfaceName: symbol]: T;
 }
 
-export class Injection {
+export class Injection implements IInjection {
   private static instance: Injection;
   private container: Container<any> = {};
 
