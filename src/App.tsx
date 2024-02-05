@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './Styles';
 import MovieList from './MovieList';
-import {MoviesContext} from './MoviesContext';
+import {MoviesContext} from './MoviesProvider';
 
 import {Movie} from './Model';
 // import {IMoviesQueryResult} from './interfaces';

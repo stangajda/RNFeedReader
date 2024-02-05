@@ -1,10 +1,23 @@
 import React from 'react';
-//import {useGetMoviesQuery} from './apiSlice';
-import {MoviesContext} from './MoviesContext';
 import {Injection} from './DIContainer';
 import {TYPES} from './types';
 import {IMoviesQueryResult} from './interfaces';
 import {useHook} from './useHook';
+import {createContext} from 'react';
+
+interface IMoviesQueryContext {
+  useGetMoviesQuery: () => IMoviesQueryResult;
+}
+
+export const MoviesContext = createContext<IMoviesQueryContext>({
+  useGetMoviesQuery: () => ({
+    data: undefined,
+    isLoading: false,
+    isSuccess: false,
+    isError: false,
+    error: undefined,
+  }),
+});
 
 interface MoviesQueryProviderProps {
   children: React.ReactNode;
