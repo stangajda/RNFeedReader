@@ -1,7 +1,7 @@
 import React from 'react';
 //import {useGetMoviesQuery} from './apiSlice';
 import {MoviesContext} from './MoviesContext';
-import {MainContainer} from './Container';
+import {Injection} from './DIContainer';
 import {TYPES} from './types';
 import {IMoviesQueryResult} from './interfaces';
 import {useHook} from './useHook';
@@ -12,7 +12,7 @@ interface MoviesQueryProviderProps {
 
 export function MoviesProvider({children}: MoviesQueryProviderProps) {
   useHook();
-  const mainContainerInstance = MainContainer.getInstance();
+  const mainContainerInstance = Injection.getInstance();
   const queryResult = mainContainerInstance.resolve<IMoviesQueryResult>(
     TYPES.IMoviesQueryResult,
   );

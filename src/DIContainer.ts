@@ -2,16 +2,16 @@ interface Container<T> {
   [interfaceName: symbol]: T;
 }
 
-export class MainContainer {
-  private static instance: MainContainer;
+export class Injection {
+  private static instance: Injection;
   private container: Container<any> = {};
 
-  public static getInstance(): MainContainer {
-    if (!MainContainer.instance) {
-      MainContainer.instance = new MainContainer();
+  public static getInstance(): Injection {
+    if (!Injection.instance) {
+      Injection.instance = new Injection();
     }
 
-    return MainContainer.instance;
+    return Injection.instance;
   }
 
   register<T>(interfaceName: symbol, service: () => T) {

@@ -1,11 +1,11 @@
 import {IMoviesQueryResult} from './interfaces';
-import {MainContainer} from './Container';
+import {Injection} from './DIContainer';
 import {useGetMoviesQuery} from './apiSlice';
 
 import {TYPES} from './types';
 
 export function useHook() {
-  const injection = MainContainer.getInstance();
+  const injection = Injection.getInstance();
 
   const getMoviesQuery = useGetMoviesQuery({});
   injection.register<IMoviesQueryResult>(

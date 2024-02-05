@@ -1,4 +1,4 @@
-import {MainContainer} from './src/Container';
+import {Injection} from './src/DIContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 import App from './src/App';
