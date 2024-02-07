@@ -8,7 +8,7 @@ import {store} from './src/Store';
 import {Provider} from 'react-redux';
 import {MoviesProvider} from './src/MoviesProvider';
 
-import {useGetMoviesQuery} from './src/apiSlice';
+//import {useGetMoviesQuery} from './src/apiSlice';
 
 export const ReduxApp = () => (
   <Provider store={store}>

@@ -12,7 +12,6 @@ type Props = {
 };
 
 export const MoviesProvider: React.FC<Props> = props => {
-  useHook();
   return (
     <InjectionContext.Provider value={{container: props.container}}>
       {props.children}
@@ -25,5 +24,6 @@ export function useInjection<T>(identifier: symbol) {
   if (!container) {
     throw new Error();
   }
+  useHook();
   return container.resolve<T>(identifier);
 }
