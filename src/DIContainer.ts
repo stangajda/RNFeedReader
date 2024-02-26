@@ -1,6 +1,13 @@
+import {useGetMoviesQuery} from './apiSlice';
+import {IMoviesQueryResult} from './interfaces';
+
+import {TYPES} from './types';
+
 export interface IInjection {
   register<T>(interfaceName: symbol, service: () => T): void;
   resolve<T>(interfaceName: symbol): T;
+  useResolve<T>(interfaceName: symbol): T;
+  initialRegister(): void;
 }
 
 interface Container<T> {
@@ -38,4 +45,22 @@ export class Injection implements IInjection {
     }
     return object.instance;
   }
+
+  useResolve<T>(interfaceName: symbol): T {
+    return this.resolve(interfaceName);
+  }
+
+  initialRegister() {
+    this.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
+      useGetMoviesQuery({}),
+    );
+  }
 }
+
+// export function initialRegister() {
+//   const injection = Injection.getInstance();
+
+//   injection.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
+//     useGetMoviesQuery({}),
+//   );
+// }

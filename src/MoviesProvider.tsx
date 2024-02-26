@@ -1,6 +1,6 @@
 import React from 'react';
 import {IInjection} from './DIContainer';
-import {useHook} from './useHook';
+//import {useHook} from './useHook';
 
 const InjectionContext = React.createContext<{
   container: IInjection | null;
@@ -24,6 +24,7 @@ export function useInjection<T>(identifier: symbol) {
   if (!container) {
     throw new Error();
   }
-  useHook();
-  return container.resolve<T>(identifier);
+  //container.initialRegister();
+  //useHook();
+  return container.useResolve<T>(identifier);
 }

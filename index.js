@@ -10,12 +10,16 @@ import {MoviesProvider} from './src/MoviesProvider';
 
 //import {useGetMoviesQuery} from './src/apiSlice';
 
-export const ReduxApp = () => (
-  <Provider store={store}>
-    <MoviesProvider container={Injection.getInstance()}>
-      <App />
-    </MoviesProvider>
-  </Provider>
-);
+export const ReduxApp = () => {
+  const injection = Injection.getInstance();
+  injection.initialRegister();
+  return (
+    <Provider store={store}>
+      <MoviesProvider container={injection}>
+        <App />
+      </MoviesProvider>
+    </Provider>
+  );
+};
 
 AppRegistry.registerComponent(appName, () => ReduxApp);
