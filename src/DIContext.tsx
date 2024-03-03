@@ -1,9 +1,5 @@
 import React, {createContext, useContext, memo, ReactNode} from 'react';
-import {IMoviesQueryResult} from './interfaces';
-
-interface IDependencies {
-  moviesQueryResult: IMoviesQueryResult;
-}
+import {IDependencies} from './interfaces';
 
 const defaultDependencies = {} as IDependencies;
 const DependenciesContext = createContext<IDependencies>(defaultDependencies);
