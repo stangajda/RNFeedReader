@@ -13,11 +13,19 @@ import MovieList from './MovieList';
 import {Movie} from './model';
 
 import {useGetMoviesQuery} from './apiSlice';
-import {IMoviesQueryResult} from './interfaces';
+import {IMoviesQueryResult, IDependencies} from './interfaces';
+
+import {useDI} from './DIContext';
+
+function useCustomHook(): IDependencies {
+  return {moviesQueryResult: useGetMoviesQuery({})};
+}
 
 function App(): React.JSX.Element {
+  const deps = useDI(useCustomHook());
+
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    useGetMoviesQuery({});
+    deps.moviesQueryResult;
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;
