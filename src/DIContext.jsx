@@ -1,4 +1,4 @@
-import {createContext, useContext, memo} from 'react';
+import React, {createContext, useContext, memo} from 'react';
 
 const defaultDependencies = {};
 const DependenciesContext = createContext(defaultDependencies);
@@ -17,7 +17,6 @@ export const DIProvider = memo(function DIProvider({
   };
 
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
     <DependenciesContext.Provider value={dependencies}>
       {children}
     </DependenciesContext.Provider>
