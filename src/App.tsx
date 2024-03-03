@@ -7,10 +7,10 @@
 
 import React from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
-import Styles from './Styles';
+import Styles from './styles';
 import MovieList from './MovieList';
 
-import {Movie} from './Model';
+import {Movie} from './model';
 
 import {useGetMoviesQuery} from './apiSlice';
 import {IMoviesQueryResult} from './interfaces';

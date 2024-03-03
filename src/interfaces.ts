@@ -1,6 +1,6 @@
 import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
 import {SerializedError} from '@reduxjs/toolkit';
-import {Movies} from './Model';
+import {Movies} from './model';
 
 interface IError {
   error: Error;
