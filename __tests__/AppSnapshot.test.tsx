@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
 import {useGetMoviesQuery} from '@src/ApiSlice';
 import {IMoviesQueryResult} from '@src/interfaces';
+import {DIProvider} from '@src/DIContext';
+import {useDependencies} from '@src/DIContainer';
 
 jest.mock('@src/apiSlice', () => {
   const originalModule = jest.requireActual('@src/apiSlice');
@@ -20,22 +22,67 @@ jest.mock('@src/apiSlice', () => {
 const mockUseGetMoviesQuery =
   useGetMoviesQuery as jest.Mock<IMoviesQueryResult>;
 
+// <DIProvider useCustomHook={() => ['loading']} >
+//     <App />
+//   </DIProvider>
+
+// describe('should get testing value', () => {
+//   it('should get testing value', () => {
+//     const dataResult = require('./StubMovieListResponseResult.json');
+//     const mockData: IMoviesQueryResult = {
+//       data: dataResult,
+//       isLoading: false,
+//       isSuccess: true,
+//       isError: false,
+//     };
+
+//     const tree = renderer
+//       .create(
+//         <DIProvider useDependencies={() => mockData}>
+//           <ReduxApp />
+//         </DIProvider>,
+//       )
+//       .toJSON();
+//     expect(tree).toMatchSnapshot();
+//   });
+// });
+
 describe('check movies list view to match recorded snapshot', () => {
   describe('when movies list is loaded', () => {
-    beforeAll(() => {
+    it('it should match movie list loaded image json', () => {
       const dataResult = require('./StubMovieListResponseResult.json');
-      mockUseGetMoviesQuery.mockReturnValueOnce({
+      const mockData: IMoviesQueryResult = {
         data: dataResult,
         isLoading: false,
         isSuccess: true,
         isError: false,
-      });
-    });
-    it('it should match movie list loaded image json', () => {
-      const tree = renderer.create(<ReduxApp />).toJSON();
+      };
+
+      const tree = renderer
+        .create(
+          <DIProvider useDependencies={() => mockData}>
+            <ReduxApp />
+          </DIProvider>,
+        )
+        .toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
+  // describe('when movies list is loaded', () => {
+  //   beforeAll(() => {
+  //     const dataResult = require('./StubMovieListResponseResult.json');
+  //     mockUseGetMoviesQuery.mockReturnValueOnce({
+  //       data: dataResult,
+  //       isLoading: false,
+  //       isSuccess: true,
+  //       isError: false,
+  //     });
+  //   });
+  //   it('it should match movie list loaded image json', () => {
+  //     const tree = renderer.create(<ReduxApp />).toJSON();
+  //     expect(tree).toMatchSnapshot();
+  //   });
+  // });
   describe('when movies list is loading', () => {
     beforeAll(() => {
       mockUseGetMoviesQuery.mockReturnValueOnce({
