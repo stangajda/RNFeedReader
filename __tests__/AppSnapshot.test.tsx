@@ -3,7 +3,7 @@ import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
 import {useGetMoviesQuery} from '@src/ApiSlice';
-import {IMoviesQueryResult} from '@src/interfaces';
+import {IDependencies, IMoviesQueryResult} from '@src/interfaces';
 import {DIProvider} from '@src/DIContext';
 import {useDependencies} from '@src/DIContainer';
 
@@ -58,9 +58,13 @@ describe('check movies list view to match recorded snapshot', () => {
         isError: false,
       };
 
+      const useMockDependencies = (): IDependencies => ({
+        moviesQueryResult: mockData,
+      });
+
       const tree = renderer
         .create(
-          <DIProvider useDependencies={() => mockData}>
+          <DIProvider useDependencies={() => useMockDependencies}>
             <ReduxApp />
           </DIProvider>,
         )
