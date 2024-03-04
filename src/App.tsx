@@ -1,28 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
-
 import {Movie} from './model';
 
-import {useGetMoviesQuery} from './apiSlice';
-import {IMoviesQueryResult, IDependencies} from './interfaces';
-
+import {IMoviesQueryResult} from './interfaces';
+import {useDependencies} from './DIContainer';
 import {useDI} from './DIContext';
 
-function useCustomHook(): IDependencies {
-  return {moviesQueryResult: useGetMoviesQuery({})};
-}
-
 function App(): React.JSX.Element {
-  const deps = useDI(useCustomHook());
+  const deps = useDI(useDependencies());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
     deps.moviesQueryResult;
