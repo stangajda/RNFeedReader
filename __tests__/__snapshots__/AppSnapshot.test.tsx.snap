@@ -57,7 +57,7 @@ exports[`check movies list view to match recorded snapshot when movies list is e
 </RCTSafeAreaView>
 `;
 
-exports[`check movies list view to match recorded snapshot when movies list is error it should match movie list error image json 1`] = `
+exports[`check movies list view to match recorded snapshot when movies list is error it should match movie list loading image json 1`] = `
 <RCTSafeAreaView
   style={
     {
@@ -79,7 +79,7 @@ exports[`check movies list view to match recorded snapshot when movies list is e
 </RCTSafeAreaView>
 `;
 
-exports[`check movies list view to match recorded snapshot when movies list is loaded it should match movie list loaded image json 1`] = `
+exports[`check movies list view to match recorded snapshot when movies list is loaded should match movie list loaded image json 1`] = `
 <RCTSafeAreaView
   style={
     {
