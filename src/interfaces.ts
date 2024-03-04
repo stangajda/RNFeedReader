@@ -27,5 +27,5 @@ export interface IMoviesResponse {
 }
 
 export interface IDependencies {
-  moviesQueryResult: IMoviesQueryResult;
+  moviesQueryResult: () => IMoviesQueryResult;
 }

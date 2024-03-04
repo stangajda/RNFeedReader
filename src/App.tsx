@@ -12,7 +12,7 @@ function App(): React.JSX.Element {
   const deps = useDI(useDependencies());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
-    deps.moviesQueryResult;
+    deps.moviesQueryResult();
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;
