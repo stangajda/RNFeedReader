@@ -2,11 +2,13 @@ import React from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
-import {IMoviesQueryResult} from '@src/interfaces';
+import {IDependencies, IMoviesQueryResult} from '@src/interfaces';
 import {DIProvider} from '@src/DIContext';
+import {mockDependencies} from '@src/DIContainer';
 
 describe('check movies list view to match recorded snapshot', () => {
   let mockData: IMoviesQueryResult;
+  let mockDependency: IDependencies;
   describe('when movies list is loaded', () => {
     beforeAll(() => {
       const dataResult = require('./StubMovieListResponseResult.json');
@@ -16,12 +18,13 @@ describe('check movies list view to match recorded snapshot', () => {
         isSuccess: true,
         isError: false,
       };
+      mockDependency = mockDependencies(mockData);
     });
 
     it('should match movie list loaded image json', () => {
       const tree = renderer
         .create(
-          <DIProvider moviesQueryResult={() => mockData}>
+          <DIProvider {...mockDependency}>
             <ReduxApp />
           </DIProvider>,
         )

@@ -83,3 +83,9 @@ export const useDependencies = (): IDependencies => ({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   moviesQueryResult: () => useGetMoviesQuery({}),
 });
+
+export const mockDependencies = (
+  mockData: IMoviesQueryResult,
+): IDependencies => ({
+  moviesQueryResult: () => mockData,
+});
