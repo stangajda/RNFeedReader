@@ -47,6 +47,19 @@ export class Injection implements IInjection {
     return object.instance;
   }
 
+  lazyResolve<T>(interfaceName: symbol): () => T {
+    const object = this.container[interfaceName];
+    if (!object) {
+      throw new Error(
+        `Object for Interface Name ${interfaceName.toString()} not found`,
+      );
+    }
+    if (!object.instance) {
+      object.instance = object.service();
+    }
+    return () => object.instance;
+  }
+
   useResolve<T>(interfaceName: symbol): T {
     return this.resolve(interfaceName);
   }
