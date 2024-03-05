@@ -2,29 +2,31 @@ import React from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
-import {IDependencies, IMoviesQueryResult} from '@src/interfaces';
 import {DIProvider} from '@src/DIContext';
-import {mockDependencies} from '@src/DIContainer';
+import {Injection, useDependencies} from '@src/DIContainer';
+import {TYPES} from '@src/types';
 
 describe('check movies list view to match recorded snapshot', () => {
-  let mockData: IMoviesQueryResult;
-  let mockDependency: IDependencies;
   describe('when movies list is loaded', () => {
     beforeAll(() => {
       const dataResult = require('./StubMovieListResponseResult.json');
-      mockData = {
+      const mockData = {
         data: dataResult,
         isLoading: false,
         isSuccess: true,
         isError: false,
       };
-      mockDependency = mockDependencies(mockData);
+      Injection.getInstance().register(
+        TYPES.IMoviesQueryResult,
+        () => mockData,
+      );
     });
 
     it('should match movie list loaded image json', () => {
+      const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...mockDependency}>
+          <DIProvider {...deps}>
             <ReduxApp />
           </DIProvider>,
         )
@@ -35,16 +37,21 @@ describe('check movies list view to match recorded snapshot', () => {
 
   describe('when movies list is loading', () => {
     beforeAll(() => {
-      mockData = {
+      const mockData = {
         isLoading: true,
         isSuccess: false,
         isError: false,
       };
+      Injection.getInstance().register(
+        TYPES.IMoviesQueryResult,
+        () => mockData,
+      );
     });
     it('it should match movie list loading image json', () => {
+      const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider moviesQueryResult={() => mockData}>
+          <DIProvider {...deps}>
             <ReduxApp />
           </DIProvider>,
         )
@@ -54,17 +61,22 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when movies list is error', () => {
     beforeAll(() => {
-      mockData = {
+      const mockData = {
         isLoading: false,
         isSuccess: false,
         isError: true,
         error: new Error('stub error message'),
       };
+      Injection.getInstance().register(
+        TYPES.IMoviesQueryResult,
+        () => mockData,
+      );
     });
     it('it should match movie list loading image json', () => {
+      const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider moviesQueryResult={() => mockData}>
+          <DIProvider {...deps}>
             <ReduxApp />
           </DIProvider>,
         )
@@ -74,16 +86,21 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when movies list is empty', () => {
     beforeAll(() => {
-      mockData = {
+      const mockData = {
         isLoading: false,
         isSuccess: true,
         isError: false,
       };
+      Injection.getInstance().register(
+        TYPES.IMoviesQueryResult,
+        () => mockData,
+      );
     });
     it('it should match movie list empty image json', () => {
+      const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider moviesQueryResult={() => mockData}>
+          <DIProvider {...deps}>
             <ReduxApp />
           </DIProvider>,
         )
@@ -93,16 +110,21 @@ describe('check movies list view to match recorded snapshot', () => {
   });
   describe('when loading success and error at the same time return false', () => {
     beforeAll(() => {
-      mockData = {
+      const mockData = {
         isLoading: false,
         isSuccess: false,
         isError: false,
       };
+      Injection.getInstance().register(
+        TYPES.IMoviesQueryResult,
+        () => mockData,
+      );
     });
     it('it should match movie list empty image json', () => {
+      const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider moviesQueryResult={() => mockData}>
+          <DIProvider {...deps}>
             <ReduxApp />
           </DIProvider>,
         )

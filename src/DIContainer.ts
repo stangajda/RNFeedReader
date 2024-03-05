@@ -7,7 +7,6 @@ import {TYPES} from './types';
 export interface IInjection {
   register<T>(interfaceName: symbol, service: () => T): void;
   resolve<T>(interfaceName: symbol): T;
-  useResolve<T>(interfaceName: symbol): T;
   initialRegister(): void;
 }
 
@@ -47,23 +46,6 @@ export class Injection implements IInjection {
     return object.instance;
   }
 
-  lazyResolve<T>(interfaceName: symbol): () => T {
-    const object = this.container[interfaceName];
-    if (!object) {
-      throw new Error(
-        `Object for Interface Name ${interfaceName.toString()} not found`,
-      );
-    }
-    if (!object.instance) {
-      object.instance = object.service();
-    }
-    return () => object.instance;
-  }
-
-  useResolve<T>(interfaceName: symbol): T {
-    return this.resolve(interfaceName);
-  }
-
   initialRegister() {
     this.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
       useGetMoviesQuery({}),
@@ -71,21 +53,7 @@ export class Injection implements IInjection {
   }
 }
 
-// export function initialRegister() {
-//   const injection = Injection.getInstance();
-
-//   injection.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
-//     useGetMoviesQuery({}),
-//   );
-// }
-
 export const useDependencies = (): IDependencies => ({
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  moviesQueryResult: () => useGetMoviesQuery({}),
-});
-
-export const mockDependencies = (
-  mockData: IMoviesQueryResult,
-): IDependencies => ({
-  moviesQueryResult: () => mockData,
+  moviesQueryResult: () =>
+    Injection.getInstance().resolve(TYPES.IMoviesQueryResult),
 });
