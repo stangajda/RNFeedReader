@@ -1,17 +1,20 @@
 import React from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
-import Styles from './Styles';
+import Styles from './styles';
 import MovieList from './MovieList';
 import {useInjection} from './MoviesProvider';
 
-import {Movie} from './Model';
+import {Movie} from './model';
 import {IMoviesQueryResult} from './interfaces';
 
 import {TYPES} from './types';
+import { Injection } from './DIContainer';
 
 function App(): React.JSX.Element {
-  const provider = useInjection<IMoviesQueryResult>(TYPES.IMoviesQueryResult);
-  const {data, isLoading, isSuccess, isError, error} = provider;
+  const provider2 = Injection.getInstance().resolve2<IMoviesQueryResult>(
+    TYPES.IMoviesQueryResult,
+  );
+  const {data, isLoading, isSuccess, isError, error} = provider2();
   const movieList: Movie[] = data?.results || [];
 
   let content: React.JSX.Element | null;
