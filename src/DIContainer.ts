@@ -20,10 +20,10 @@ interface ServiceContainer<T> {
 }
 
 export class Injection implements IInjection {
-  private static instance: IInjection;
+  private static instance: Injection;
   private container: Container<ServiceContainer<any>> = {};
 
-  public static getInstance(): IInjection {
+  public static getInstance(): Injection {
     if (!Injection.instance) {
       Injection.instance = new Injection();
     }
