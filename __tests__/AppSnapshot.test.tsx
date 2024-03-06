@@ -2,7 +2,7 @@ import React from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
-import {DIProvider} from '@src/DIContext';
+import {DIInjectionProvider} from '@src/DIContext';
 import {Injection, useDependencies} from '@src/DIContainer';
 import {TYPES} from '@src/types';
 
@@ -26,9 +26,9 @@ describe('check movies list view to match recorded snapshot', () => {
       const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...deps}>
+          <DIInjectionProvider {...deps}>
             <ReduxApp />
-          </DIProvider>,
+          </DIInjectionProvider>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -51,9 +51,9 @@ describe('check movies list view to match recorded snapshot', () => {
       const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...deps}>
+          <DIInjectionProvider {...deps}>
             <ReduxApp />
-          </DIProvider>,
+          </DIInjectionProvider>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -76,9 +76,9 @@ describe('check movies list view to match recorded snapshot', () => {
       const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...deps}>
+          <DIInjectionProvider {...deps}>
             <ReduxApp />
-          </DIProvider>,
+          </DIInjectionProvider>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -100,9 +100,9 @@ describe('check movies list view to match recorded snapshot', () => {
       const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...deps}>
+          <DIInjectionProvider {...deps}>
             <ReduxApp />
-          </DIProvider>,
+          </DIInjectionProvider>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -124,9 +124,9 @@ describe('check movies list view to match recorded snapshot', () => {
       const deps = useDependencies();
       const tree = renderer
         .create(
-          <DIProvider {...deps}>
+          <DIInjectionProvider {...deps}>
             <ReduxApp />
-          </DIProvider>,
+          </DIInjectionProvider>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
