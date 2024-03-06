@@ -2,8 +2,8 @@ import {Container, IInjection, ServiceContainer} from './interfaces';
 
 export class Injection implements IInjection {
   private static instance: Injection;
-  // we define any more spocific in the functions 'as ServiceContainer<T>' to use generic type from function
-  private container: Container<any> = {};
+  // we define unknown as type because we do not know what type of object we will use we define later in the code use generic type
+  private container: Container<unknown> = {};
 
   public static getInstance(): Injection {
     if (!Injection.instance) {
