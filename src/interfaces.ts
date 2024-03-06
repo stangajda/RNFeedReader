@@ -25,7 +25,3 @@ export interface IMoviesResponse {
   error?: IError;
   status: number;
 }
-
-export interface IDependencies {
-  moviesQueryResult: () => IMoviesQueryResult;
-}

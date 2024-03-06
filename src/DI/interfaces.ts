@@ -1,3 +1,9 @@
+import {IMoviesQueryResult} from '@src/interfaces';
+
+export interface IDependencies {
+  moviesQueryResult: () => IMoviesQueryResult;
+}
+
 export interface IInjection {
   register<T>(interfaceName: symbol, service: () => T): void;
   resolve<T>(interfaceName: symbol): T;

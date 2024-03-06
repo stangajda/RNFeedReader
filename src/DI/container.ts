@@ -1,4 +1,4 @@
-import {IDependencies} from '@src/interfaces';
+import {IDependencies} from '@src/DI/interfaces';
 import {TYPES} from '@src/types';
 import {Injection} from './Injection';
 
