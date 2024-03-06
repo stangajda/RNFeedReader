@@ -6,13 +6,13 @@ import {Movie} from './model';
 
 import {IMoviesQueryResult} from './interfaces';
 import {Injection, useDependencies} from './DependencyInjection/DIContainer';
-import {useDI} from './DependencyInjection/DIContext';
+import {useInjectedDI} from './DependencyInjection/DIContext';
 
 function App(): React.JSX.Element {
   if (process.env.NODE_ENV !== 'test') {
     Injection.getInstance().initialRegister();
   }
-  const deps = useDI(useDependencies());
+  const deps = useInjectedDI(useDependencies());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
     deps.moviesQueryResult();

@@ -23,10 +23,10 @@ export const DIInjectionProvider: React.FC<
   );
 });
 
-export const useDI = (dependencies: IDependencies): IDependencies => {
-  const upstreamDependencies = useDependencies();
+export const useInjectedDI = (dependencies: IDependencies): IDependencies => {
+  const existingDependencies = useDependencies();
 
-  return Object.keys(upstreamDependencies).length > 0
-    ? {...upstreamDependencies}
+  return Object.keys(existingDependencies).length > 0
+    ? {...existingDependencies}
     : dependencies;
 };
