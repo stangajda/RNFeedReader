@@ -14,7 +14,7 @@ interface Container<T> {
 
 interface ServiceContainer<T> {
   service: () => T;
-  instance: T;
+  instance: T | null;
 }
 
 export class Injection implements IInjection {
