@@ -2,10 +2,10 @@ import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
 import {mockMoviesListResponse} from './helpers/server';
-import {apiSlice, useGetMoviesQuery} from '@src/ApiSlice';
+import {apiSlice, useGetMoviesQuery} from '@src/Redux/apiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
-import {store} from '@src/Store';
+import {store} from '@src/Redux/store';
 import {Provider} from 'react-redux';
 import {setupMockServer} from './helpers/server';
 

@@ -1,6 +1,6 @@
 import {IMoviesQueryResult} from '@src/interfaces';
 import {Injection} from './Injection';
-import {useGetMoviesQuery} from '@src/apiSlice';
+import {useGetMoviesQuery} from '@src/Redux/apiSlice';
 import {TYPES} from '@src/types';
 
 export const initialRegister = () => {
