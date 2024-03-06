@@ -3,8 +3,8 @@ import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
 import {DIInjectionProvider} from '@src/DependencyInjection/Context';
-import {Injection} from '@src/DependencyInjection/Injection';
-import {useDependenciesContainer} from '@src/DependencyInjection/Container';
+import {Injection} from '@src/DependencyInjection/injection';
+import {useDependenciesContainer} from '@src/DependencyInjection/container';
 import {TYPES} from '@src/types';
 
 describe('check movies list view to match recorded snapshot', () => {

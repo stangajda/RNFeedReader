@@ -1,7 +1,4 @@
-import {useGetMoviesQuery} from '@src/apiSlice';
-import {IMoviesQueryResult} from '@src/interfaces';
-import {TYPES} from '@src/types';
-import {Container, IInjection, ServiceContainer} from './Interfaces';
+import {Container, IInjection, ServiceContainer} from './interfaces';
 
 export class Injection implements IInjection {
   private static instance: Injection;
@@ -34,11 +31,5 @@ export class Injection implements IInjection {
       object.instance = object.service();
     }
     return object.instance;
-  }
-
-  initialRegister() {
-    this.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
-      useGetMoviesQuery({}),
-    );
   }
 }

@@ -5,13 +5,13 @@ import MovieList from './MovieList';
 import {Movie} from './model';
 
 import {IMoviesQueryResult} from './interfaces';
-import {Injection} from './DependencyInjection/Injection';
-import {useDependenciesContainer} from './DependencyInjection/Container';
+import {useDependenciesContainer} from './DependencyInjection/container';
 import {useInjectedDI} from './DependencyInjection/Context';
+import {initialRegister} from './DependencyInjection/registration';
 
 function App(): React.JSX.Element {
   if (process.env.NODE_ENV !== 'test') {
-    Injection.getInstance().initialRegister();
+    initialRegister();
   }
   const deps = useInjectedDI(useDependenciesContainer());
 
