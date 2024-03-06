@@ -3,7 +3,8 @@ import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
 import {DIInjectionProvider} from '@src/DependencyInjection/DIContext';
-import {Injection, useDependencies} from '@src/DependencyInjection/DIContainer';
+import {Injection} from '@src/DependencyInjection/DIInjection';
+import { useDependenciesContainer } from '@src/DependencyInjection/DIContainer';
 import {TYPES} from '@src/types';
 
 describe('check movies list view to match recorded snapshot', () => {
@@ -23,7 +24,7 @@ describe('check movies list view to match recorded snapshot', () => {
     });
 
     it('should match movie list loaded image json', () => {
-      const deps = useDependencies();
+      const deps = useDependenciesContainer();
       const tree = renderer
         .create(
           <DIInjectionProvider {...deps}>
@@ -48,7 +49,7 @@ describe('check movies list view to match recorded snapshot', () => {
       );
     });
     it('it should match movie list loading image json', () => {
-      const deps = useDependencies();
+      const deps = useDependenciesContainer();
       const tree = renderer
         .create(
           <DIInjectionProvider {...deps}>
@@ -73,7 +74,7 @@ describe('check movies list view to match recorded snapshot', () => {
       );
     });
     it('it should match movie list loading image json', () => {
-      const deps = useDependencies();
+      const deps = useDependenciesContainer();
       const tree = renderer
         .create(
           <DIInjectionProvider {...deps}>
@@ -97,7 +98,7 @@ describe('check movies list view to match recorded snapshot', () => {
       );
     });
     it('it should match movie list empty image json', () => {
-      const deps = useDependencies();
+      const deps = useDependenciesContainer();
       const tree = renderer
         .create(
           <DIInjectionProvider {...deps}>
@@ -121,7 +122,7 @@ describe('check movies list view to match recorded snapshot', () => {
       );
     });
     it('it should match movie list empty image json', () => {
-      const deps = useDependencies();
+      const deps = useDependenciesContainer();
       const tree = renderer
         .create(
           <DIInjectionProvider {...deps}>

@@ -5,14 +5,15 @@ import MovieList from './MovieList';
 import {Movie} from './model';
 
 import {IMoviesQueryResult} from './interfaces';
-import {Injection, useDependencies} from './DependencyInjection/DIContainer';
+import {Injection} from './DependencyInjection/DIInjection';
+import {useDependenciesContainer} from './DependencyInjection/DIContainer';
 import {useInjectedDI} from './DependencyInjection/DIContext';
 
 function App(): React.JSX.Element {
   if (process.env.NODE_ENV !== 'test') {
     Injection.getInstance().initialRegister();
   }
-  const deps = useInjectedDI(useDependencies());
+  const deps = useInjectedDI(useDependenciesContainer());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
     deps.moviesQueryResult();
