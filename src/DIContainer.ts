@@ -14,11 +14,16 @@ interface Container<T> {
   [interfaceName: symbol]: T;
 }
 
-export class Injection implements IInjection {
-  private static instance: Injection;
-  private container: Container<any> = {};
+interface ServiceContainer<T> {
+  service: () => T;
+  instance: T;
+}
 
-  public static getInstance(): Injection {
+export class Injection implements IInjection {
+  private static instance: IInjection;
+  private container: Container<ServiceContainer<any>> = {};
+
+  public static getInstance(): IInjection {
     if (!Injection.instance) {
       Injection.instance = new Injection();
     }
