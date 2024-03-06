@@ -2,8 +2,8 @@ import React from 'react';
 import {it} from '@jest/globals';
 import renderer from 'react-test-renderer';
 import {ReduxApp} from 'index';
-import {DIInjectionProvider} from '@src/DIContext';
-import {Injection, useDependencies} from '@src/DIContainer';
+import {DIInjectionProvider} from '@src/DependencyInjection/DIContext';
+import {Injection, useDependencies} from '@src/DependencyInjection/DIContainer';
 import {TYPES} from '@src/types';
 
 describe('check movies list view to match recorded snapshot', () => {

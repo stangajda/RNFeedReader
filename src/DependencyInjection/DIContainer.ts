@@ -1,7 +1,7 @@
-import {useGetMoviesQuery} from './apiSlice';
-import {IDependencies} from './interfaces';
-import {IMoviesQueryResult} from './interfaces';
-import {TYPES} from './types';
+import {useGetMoviesQuery} from '@src/apiSlice';
+import {IDependencies} from '@src/interfaces';
+import {IMoviesQueryResult} from '@src/interfaces';
+import {TYPES} from '@src/types';
 
 export interface IInjection {
   register<T>(interfaceName: symbol, service: () => T): void;

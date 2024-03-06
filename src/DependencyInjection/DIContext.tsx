@@ -1,5 +1,5 @@
 import React, {createContext, useContext, memo, ReactNode} from 'react';
-import {IDependencies} from './interfaces';
+import {IDependencies} from '@src/interfaces';
 
 const initialDependencies = {} as IDependencies;
 const DependenciesContext = createContext<IDependencies>(initialDependencies);
