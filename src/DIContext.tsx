@@ -1,22 +1,22 @@
 import React, {createContext, useContext, memo, ReactNode} from 'react';
 import {IDependencies} from './interfaces';
 
-const defaultDependencies = {} as IDependencies;
-const DependenciesContext = createContext<IDependencies>(defaultDependencies);
+const initialDependencies = {} as IDependencies;
+const DependenciesContext = createContext<IDependencies>(initialDependencies);
 
 const useDependencies = () => useContext(DependenciesContext);
 
 export const DIProvider: React.FC<{children: ReactNode} & IDependencies> = memo(
-  function DIProvider({children, ...customDependencies}) {
-    const upstreamDependencies = useDependencies();
+  function DIProvider({children, ...additionalDependencies}) {
+    const existingDependencies = useDependencies();
 
-    const dependencies: IDependencies = {
-      ...upstreamDependencies,
-      ...customDependencies,
+    const mergedDependencies: IDependencies = {
+      ...existingDependencies,
+      ...additionalDependencies,
     };
 
     return (
-      <DependenciesContext.Provider value={dependencies}>
+      <DependenciesContext.Provider value={mergedDependencies}>
         {children}
       </DependenciesContext.Provider>
     );
