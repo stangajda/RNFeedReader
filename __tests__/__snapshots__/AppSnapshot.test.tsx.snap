@@ -305,51 +305,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-0-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.1
-                   
+                  mock-0-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  1724
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.1
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    1724
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -389,51 +391,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-1-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-1-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -473,51 +477,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-2-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.9
-                   
+                  mock-2-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.9
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -557,51 +563,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-3-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-3-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  1724
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    1724
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -641,51 +649,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-4-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-4-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  1724
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    1724
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -725,51 +735,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-5-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-5-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -809,51 +821,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-6-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-6-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  1724
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    1724
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -893,51 +907,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-7-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-7-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -977,51 +993,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-8-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-8-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -1061,51 +1079,53 @@ exports[`check movies list view to match recorded snapshot when movies list is l
                 }
               }
             >
-              <Text
-                ellipsizeMode="tail"
-                numberOfLines={2}
-                style={
-                  {
-                    "color": "black",
-                    "flexShrink": 1,
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                mock-9-title
-              </Text>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                  }
-                }
-              >
+              <View>
                 <Text
+                  ellipsizeMode="tail"
+                  numberOfLines={2}
                   style={
                     {
-                      "color": "#444",
+                      "color": "black",
+                      "flexShrink": 1,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
                 >
-                  6.5
-                   
+                  mock-9-title
                 </Text>
-                <Text
+                <View
                   style={
                     {
-                      "color": "grey",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  (
-                  711
-                  )
-                </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "#444",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    6.5
+                     
+                  </Text>
+                  <Text
+                    style={
+                      {
+                        "color": "grey",
+                      }
+                    }
+                  >
+                    (
+                    711
+                    )
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
