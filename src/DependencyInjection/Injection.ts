@@ -1,21 +1,7 @@
 import {useGetMoviesQuery} from '@src/apiSlice';
 import {IMoviesQueryResult} from '@src/interfaces';
 import {TYPES} from '@src/types';
-
-export interface IInjection {
-  register<T>(interfaceName: symbol, service: () => T): void;
-  resolve<T>(interfaceName: symbol): T;
-  initialRegister(): void;
-}
-
-interface Container<T> {
-  [interfaceName: symbol]: ServiceContainer<T>;
-}
-
-interface ServiceContainer<T> {
-  service: () => T;
-  instance: T | null;
-}
+import {Container, IInjection, ServiceContainer} from './Interfaces';
 
 export class Injection implements IInjection {
   private static instance: Injection;
