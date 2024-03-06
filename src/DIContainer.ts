@@ -1,7 +1,6 @@
 import {useGetMoviesQuery} from './apiSlice';
 import {IDependencies} from './interfaces';
 import {IMoviesQueryResult} from './interfaces';
-
 import {TYPES} from './types';
 
 export interface IInjection {
@@ -11,7 +10,7 @@ export interface IInjection {
 }
 
 interface Container<T> {
-  [interfaceName: symbol]: T;
+  [interfaceName: symbol]: ServiceContainer<T>;
 }
 
 interface ServiceContainer<T> {
@@ -21,7 +20,8 @@ interface ServiceContainer<T> {
 
 export class Injection implements IInjection {
   private static instance: Injection;
-  private container: Container<ServiceContainer<any>> = {};
+  // we define any more spocific in the functions 'as ServiceContainer<T>' to use generic type from function
+  private container: Container<any> = {};
 
   public static getInstance(): Injection {
     if (!Injection.instance) {
@@ -35,11 +35,11 @@ export class Injection implements IInjection {
     this.container[interfaceName] = {
       service: service,
       instance: null,
-    };
+    } as ServiceContainer<T>;
   }
 
   resolve<T>(interfaceName: symbol): T {
-    const object = this.container[interfaceName];
+    const object = this.container[interfaceName] as ServiceContainer<T>;
     if (!object) {
       throw new Error(
         `Object for Interface Name ${interfaceName.toString()} not found`,
