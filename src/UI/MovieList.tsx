@@ -1,10 +1,10 @@
 import React, {FC, memo, useCallback} from 'react';
-import {MOVIE_API_CONFIG} from './config';
+import {MOVIE_API_CONFIG} from '../config';
 
 import {FlatList, View, Image} from 'react-native';
 
 import Styles from './styles';
-import {Movie} from './model';
+import {Movie} from '../model';
 import MovieContent from './MovieContent';
 
 type Props = {
