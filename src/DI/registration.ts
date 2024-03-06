@@ -1,5 +1,5 @@
 import {IMoviesQueryResult} from '@src/interfaces';
-import {Injection} from './injection';
+import {Injection} from './Injection';
 import {useGetMoviesQuery} from '@src/apiSlice';
 import {TYPES} from '@src/types';
 

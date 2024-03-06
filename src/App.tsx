@@ -3,11 +3,11 @@ import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
 import Styles from './styles';
 import MovieList from './MovieList';
 import {Movie} from './model';
-
 import {IMoviesQueryResult} from './interfaces';
-import {useDependenciesContainer} from './DependencyInjection/container';
-import {useInjectedDI} from './DependencyInjection/Context';
-import {initialRegister} from './DependencyInjection/registration';
+
+import {useDependenciesContainer} from './DI/container';
+import {useInjectedDI} from './DI/Context';
+import {initialRegister} from './DI/registration';
 
 function App(): React.JSX.Element {
   if (process.env.NODE_ENV !== 'test') {
