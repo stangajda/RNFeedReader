@@ -5,9 +5,9 @@ import MovieList from './MovieList';
 import {Movie} from './model';
 
 import {IMoviesQueryResult} from './interfaces';
-import {Injection} from './DependencyInjection/DIInjection';
-import {useDependenciesContainer} from './DependencyInjection/DIContainer';
-import {useInjectedDI} from './DependencyInjection/DIContext';
+import {Injection} from './DependencyInjection/Injection';
+import {useDependenciesContainer} from './DependencyInjection/Container';
+import {useInjectedDI} from './DependencyInjection/Context';
 
 function App(): React.JSX.Element {
   if (process.env.NODE_ENV !== 'test') {
