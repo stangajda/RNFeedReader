@@ -1,15 +1,16 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {movieApiPaths} from '../helper';
-import {Movies} from '../model';
+import {movieApiPaths} from '@src/helper';
+import {Movies} from '@src/model';
+import {API_PROVIDED_TAGS, API_REDUCER_PATH, API_TAG_TYPES} from '@src/config';
 
 export const apiSlice = createApi({
-  reducerPath: 'api',
+  reducerPath: API_REDUCER_PATH,
   baseQuery: fetchBaseQuery({baseUrl: movieApiPaths.baseUrl}),
-  tagTypes: ['Movie'],
+  tagTypes: API_TAG_TYPES,
   endpoints: builder => ({
     getMovies: builder.query<Movies, object>({
       query: () => movieApiPaths.trendingUrl(),
-      providesTags: ['Movie'],
+      providesTags: API_PROVIDED_TAGS,
     }),
   }),
 });
