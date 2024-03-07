@@ -8,9 +8,10 @@
 
 # Good Uses
 
-- **State Management in Complex Applications**: Redux Toolkit streamlines Redux configuration and reduces boilerplate, which is beneficial in large-scale apps.
-- **Applying SOLID Principles**: Using IoC with Dependency Injection encourages adherence to these design principles, leading to a more decoupled and scalable codebase.
-- **Unit Testing Components**: IoC facilitates the injection of mocks and stubs, easing testing efforts and supporting the achievement of 100% code coverage.
+- **Large-Scale Applications**: They benefit from the modular and maintainable code structure that IoC provides.
+- **Adherence to SOLID Principles**: When the goal is to create a system with clear separation of concerns and flexibility.
+- **Unit Testing and Mocking**: IoC facilitates testing by allowing easy substitution of dependencies, crucial for achieving 100% code coverage.
+- **Maintainable Code**: It allows for the easy separation of concerns and allows for the easy replacement of dependencies.
 - **Code Reusability Across Projects**: Dependency Injection allows services and components to be reused in different contexts by decoupling them from their concrete dependencies.
 
 # Less Ideal Uses
@@ -18,6 +19,8 @@
 - **Simple State Logic**: The additional complexity of Redux Toolkit may not be justified for applications with straightforward state management.
 - **Projects with a Small Scope**: The complexity of IoC, Dependency Injection, and adherence to SOLID principles might be excessive for small apps or rapid prototypes.
 - **Teams Unfamiliar with Advanced Patterns**: The learning curve associated with Dependency Injection, IoC, or Redux can impede productivity if the development team lacks experience with these patterns.
+- **Performance-Sensitive Environments**: The additional abstraction layers introduced by IoC and Dependency Injection can lead to performance overhead, which may be a critical issue in high-performance applications or real-time systems.
+- **Simple Dependencies Management**: When an application has very few dependencies or when those dependencies are unlikely to change, introducing IoC might add more complexity than value, making direct instantiation more straightforward and transparent.
 
 ## Installation
 
