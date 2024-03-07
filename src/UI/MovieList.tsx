@@ -1,5 +1,5 @@
 import React, {FC, memo, useCallback} from 'react';
-import {MOVIE_API_CONFIG} from '../config';
+import {movieApiPaths} from '../helper';
 
 import {FlatList, View, Image} from 'react-native';
 
@@ -21,7 +21,7 @@ const MovieList: FC<Props> = ({movieList}) => {
       <View style={Styles.listItem} key={item.id}>
         <Image
           source={{
-            uri: `${MOVIE_API_CONFIG.movieImageUrl()}${item.poster_path}`,
+            uri: `${movieApiPaths.movieImageUrl()}${item.poster_path}`,
           }}
           style={Styles.image}
         />
