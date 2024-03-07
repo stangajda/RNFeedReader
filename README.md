@@ -22,7 +22,96 @@
 - **Performance-Sensitive Environments**: The additional abstraction layers introduced by IoC and Dependency Injection can lead to performance overhead, which may be a critical issue in high-performance applications or real-time systems.
 - **Simple Dependencies Management**: When an application has very few dependencies or when those dependencies are unlikely to change, introducing IoC might add more complexity than value, making direct instantiation more straightforward and transparent.
 
-## Installation
+## iOC Implementation
+
+### Define iOC interface for the hooks/service you want to inject.
+
+```
+export interface IMoviesQueryResult {
+  data?: Movies;
+  isLoading: boolean;
+  isSuccess: boolean;
+  isError: boolean;
+  error?: FetchBaseQueryError | SerializedError;
+}
+```
+
+### Add iOC Interface to TYPES
+
+```
+const TYPES = {
+  IMoviesQueryResult: Symbol.for('IMoviesQueryResult'),
+};
+```
+
+### Register iOC Interface in Injection container
+
+```
+export const initialRegister = () => {
+  const injection = Injection.getInstance();
+  injection.register<IMoviesQueryResult>(TYPES.IMoviesQueryResult, () =>
+    useGetMoviesQuery({}),
+  );
+};
+```
+
+### Add interface to useDependency container from Injection container
+
+```
+export const useDependenciesContainer = (): IDependencies => ({
+  moviesQueryResult: () =>
+    Injection.getInstance().resolve(TYPES.IMoviesQueryResult),
+});
+```
+
+### Use the iOC Interface in your component
+
+```
+export const initialEnvRegister = (): void => {
+  if (process.env.NODE_ENV !== 'test') {
+    initialRegister();
+  }
+};
+
+initialEnvRegister();
+const deps = useInjectedDI(useDependenciesContainer());
+
+const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
+deps.moviesQueryResult();
+```
+
+### Use in your tests
+
+```
+beforeAll(() => {
+    const dataResult = require('./StubMovieListResponseResult.json');
+    const mockData = {
+    data: dataResult,
+    isLoading: false,
+    isSuccess: true,
+    isError: false,
+    };
+    Injection.getInstance().register(
+    TYPES.IMoviesQueryResult,
+    () => mockData,
+    );
+});
+
+it('should match movie list loaded image json', () => {
+    const deps = useDependenciesContainer();
+    const tree = renderer
+    .create(
+        <DIInjectionProvider {...deps}>
+        <ReduxApp />
+        </DIInjectionProvider>,
+    )
+    .toJSON();
+    expect(tree).toMatchSnapshot();
+});
+```
+
+
+## Demo Installation
 
 Run `yarn install` to install dependencies
 Run `yarn start` to start the App.
