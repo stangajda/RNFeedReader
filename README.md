@@ -9,7 +9,10 @@
 # Good Uses
 
 - **Large-Scale Applications**: They benefit from the modular and maintainable code structure that IoC provides.
+- **Centralizing Configuration**: A singleton container can manage and centralize the configuration for shared services, ensuring consistent behavior throughout the application.
+- **Shared Resources Management**: When multiple components need to access the same instance of a resource, a singleton container can provide and manage this shared instance.
 - **Adherence to SOLID Principles**: When the goal is to create a system with clear separation of concerns and flexibility.
+- **Maintaining Single Instances with DI**: Utilizing an IoC container for singleton pattern implementation allows for the consistent creation of a single instance, while still providing the flexibility to manage dependencies through injection, leading to cleaner and more testable code.
 - **Unit Testing and Mocking**: IoC facilitates testing by allowing easy substitution of dependencies, crucial for achieving 100% code coverage.
 - **Maintainable Code**: It allows for the easy separation of concerns and allows for the easy replacement of dependencies.
 - **Code Reusability Across Projects**: Dependency Injection allows services and components to be reused in different contexts by decoupling them from their concrete dependencies.
