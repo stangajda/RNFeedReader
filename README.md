@@ -1,79 +1,43 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Hook & Redux Showcase: Inversion of Control (IoC) with Dependency Injection, SOLID Principles, and Redux Toolkit - 100% Code Coverage
 
-# Getting Started
+### **Contextual IoC Example:** Demonstrate the use of React's context system to pass down dependencies through the component tree, showing how IoC can be achieved without relying on global state or props drilling.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## This project is not over-engineered or excessive in its complexity. Rather, it is intended to showcase my skills to potential employers or clients in writing high-quality code and implementing advanced solutions that can be used in larger projects. However, before using these solutions in a larger project, it is important to experiment with them on a smaller, standalone project to ensure their effectiveness and suitability.
 
-## Step 1: Start the Metro Server
+## While it's important to showcase our skills and demonstrate our ability to implement advanced solutions, it's also crucial to find a balance between complexity and practicality in real-world projects. Ultimately, we need to adhere to the requirements and guidelines set by the organization and ensure that our code is maintainable, scalable, and efficient. Additionally, we need to consider the team dynamics and ensure that our code is easy to understand, modify, and maintain by other team members. By finding this balance, we can create high-quality code that meets the needs of the project, the organization, and the team.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+# Good Uses
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **State Management in Complex Applications**: Redux Toolkit streamlines Redux configuration and reduces boilerplate, which is beneficial in large-scale apps.
+- **Applying SOLID Principles**: Using IoC with Dependency Injection encourages adherence to these design principles, leading to a more decoupled and scalable codebase.
+- **Unit Testing Components**: IoC facilitates the injection of mocks and stubs, easing testing efforts and supporting the achievement of 100% code coverage.
+- **Code Reusability Across Projects**: Dependency Injection allows services and components to be reused in different contexts by decoupling them from their concrete dependencies.
 
-```bash
-# using npm
-npm start
+# Less Ideal Uses
 
-# OR using Yarn
-yarn start
-```
+- **Simple State Logic**: The additional complexity of Redux Toolkit may not be justified for applications with straightforward state management.
+- **Projects with a Small Scope**: The complexity of IoC, Dependency Injection, and adherence to SOLID principles might be excessive for small apps or rapid prototypes.
+- **Teams Unfamiliar with Advanced Patterns**: The learning curve associated with Dependency Injection, IoC, or Redux can impede productivity if the development team lacks experience with these patterns.
 
-## Step 2: Start your Application
+## Installation
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Run `yarn install` to install dependencies
+Run `yarn start` to start the App.
 
-### For Android
+This standalone project has been confirmed to be working on:
 
-```bash
-# using npm
-npm run android
+- Node v20.10.0 
+- Xcode 15.1
+- Android Studio 2023.2.1
 
-# OR using Yarn
-yarn android
-```
+## Running Unit Tests
 
-### For iOS
+Run `yarn test` to run all unit and snapshot tests.
 
-```bash
-# using npm
-npm run ios
+## 3rd party Libraries
+  
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Sources
+https://github.com/inversify/InversifyJS   
+https://pgarciacamou.medium.com/solving-react-dependency-injection-in-userland-for-testability-48c76916216d  
+https://www.npmjs.com/package/react-magnetic-di 

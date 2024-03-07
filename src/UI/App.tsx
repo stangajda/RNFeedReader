@@ -7,12 +7,10 @@ import {IMoviesQueryResult} from '../interfaces';
 
 import {useDependenciesContainer} from '../DI/container';
 import {useInjectedDI} from '../DI/Context';
-import {initialRegister} from '../DI/registration';
+import {initialEnvRegister} from '@src/DI/initialEnvRegister';
 
 function App(): React.JSX.Element {
-  if (process.env.NODE_ENV !== 'test') {
-    initialRegister();
-  }
+  initialEnvRegister();
   const deps = useInjectedDI(useDependenciesContainer());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
