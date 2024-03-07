@@ -89,14 +89,14 @@ deps.moviesQueryResult();
 beforeAll(() => {
     const dataResult = require('./StubMovieListResponseResult.json');
     const mockData = {
-    data: dataResult,
-    isLoading: false,
-    isSuccess: true,
-    isError: false,
+      data: dataResult,
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
     };
     Injection.getInstance().register(
-    TYPES.IMoviesQueryResult,
-    () => mockData,
+      TYPES.IMoviesQueryResult,
+      () => mockData,
     );
 });
 
