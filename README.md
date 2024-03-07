@@ -35,6 +35,10 @@ This standalone project has been confirmed to be working on:
 Run `yarn test` to run all unit and snapshot tests.
 
 ## 3rd party Libraries
+reduxjs/toolkit 1.9.7  
+react 18.2.0  
+react-native 0.72.6  
+react-redux 8.1.3  
   
 
 ## Sources
