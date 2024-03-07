@@ -1,5 +1,5 @@
 import {IDependencies} from '@src/DI/interfaces';
-import {TYPES} from '@src/types';
+import {TYPES} from '@src/DI/types';
 import {Injection} from './Injection';
 
 export const useDependenciesContainer = (): IDependencies => ({
