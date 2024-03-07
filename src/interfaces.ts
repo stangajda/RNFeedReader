@@ -2,10 +2,6 @@ import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
 import {SerializedError} from '@reduxjs/toolkit';
 import {Movies} from './model';
 
-interface IError {
-  error: Error;
-}
-
 export interface MovieApiConfig {
   baseUrl: string;
   trendingUrl: () => string;
@@ -18,10 +14,4 @@ export interface IMoviesQueryResult {
   isSuccess: boolean;
   isError: boolean;
   error?: FetchBaseQueryError | SerializedError;
-}
-
-export interface IMoviesResponse {
-  data?: Movies;
-  error?: IError;
-  status: number;
 }
