@@ -4,6 +4,7 @@ import {
   API_KEY,
   API_IMAGE_BASE_URL,
   API_IMAGE_SIZE,
+  API_INVALID_MOVIE_LIST_URL,
 } from './config';
 import {MovieApiConfig} from './interfaces';
 
@@ -34,7 +35,7 @@ const cleanQueryParams = (
 
 const createPathUrl = (movieListUrl: string, apiBaseUrl: string): string => {
   if (!movieListUrl.startsWith(apiBaseUrl)) {
-    throw new Error('Invalid movie list URL');
+    throw new Error(API_INVALID_MOVIE_LIST_URL);
   }
 
   const pathUrl = movieListUrl.substring(apiBaseUrl.length);
