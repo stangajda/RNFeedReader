@@ -19,14 +19,33 @@ const createUrl = (
   return url.toString();
 };
 
-const createPathUrl = (
-  movieListUrlLocal: string,
-  apiBaseUrl: string,
-): string => {
-  return movieListUrlLocal
-    .replace(apiBaseUrl, '')
-    .replace(/(?:\/+(\?))/, '$1')
-    .replace(/\/+$/, '');
+const cleanPath = (path: string): string => {
+  return path
+    .split('/')
+    .filter(segment => segment.trim() !== '')
+    .join('/');
+};
+
+const cleanQueryParams = (
+  queryParams: string | undefined,
+): string | undefined => {
+  return queryParams?.split('/').join('');
+};
+
+const createPathUrl = (movieListUrl: string, apiBaseUrl: string): string => {
+  if (!movieListUrl.startsWith(apiBaseUrl)) {
+    throw new Error('Invalid movie list URL');
+  }
+
+  const pathUrl = movieListUrl.substring(apiBaseUrl.length);
+  const [path, queryParams] = pathUrl.split('?');
+
+  const cleanedPath = cleanPath(path);
+  const cleanedQueryParams = cleanQueryParams(queryParams);
+
+  return cleanedQueryParams
+    ? `${cleanedPath}?${cleanedQueryParams}`
+    : cleanedPath;
 };
 
 const movieListUrl: string = createUrl(API_BASE_URL, API_TRENDING_PATH, {
@@ -38,8 +57,6 @@ const movieImageUrl: string = createUrl(API_IMAGE_BASE_URL, API_IMAGE_SIZE, {});
 
 export const movieApiPaths: MovieApiConfig = {
   baseUrl: API_BASE_URL,
-  trendingUrl: () => {
-    return moviePathUrl;
-  },
+  trendingUrl: () => moviePathUrl,
   movieImageUrl: () => movieImageUrl,
 };
