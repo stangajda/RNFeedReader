@@ -7,6 +7,7 @@ const values = {
   API_REDUCER_PATH: 'api',
   API_TAG_TYPES: ['Movie'],
   API_PROVIDED_TAGS: ['Movie'],
+  API_INVALID_MOVIE_LIST_URL: 'Invalid movie list URL',
 };
 
 export const {
@@ -18,4 +19,5 @@ export const {
   API_REDUCER_PATH,
   API_TAG_TYPES,
   API_PROVIDED_TAGS,
+  API_INVALID_MOVIE_LIST_URL,
 } = values;
