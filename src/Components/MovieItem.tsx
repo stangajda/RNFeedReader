@@ -2,7 +2,7 @@
 import React, {memo, useMemo} from 'react';
 import {View, Image} from 'react-native';
 import {movieApiPaths} from '@src/utils/helper';
-import Styles from './styles';
+import Styles from '@src/styles/styles';
 import {MovieItemProps} from '@src/types/MovieItem';
 import MovieContent from './MovieContent';
 
