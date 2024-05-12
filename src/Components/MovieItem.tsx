@@ -3,12 +3,8 @@ import React, {memo, useMemo} from 'react';
 import {View, Image} from 'react-native';
 import {movieApiPaths} from '@src/utils/helper';
 import Styles from './styles';
-import {Movie} from '@src/models/Movie';
+import {MovieItemProps} from '@src/types/MovieItem';
 import MovieContent from './MovieContent';
-
-interface MovieItemProps {
-  movie: Movie;
-}
 
 const MovieItem = memo(({movie}: MovieItemProps) => {
   const imageUrl = useMemo(
