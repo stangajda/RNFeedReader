@@ -1,6 +1,6 @@
 import {FetchBaseQueryError} from '@reduxjs/toolkit/query';
 import {SerializedError} from '@reduxjs/toolkit';
-import {Movies} from './model';
+import {Movies} from '@src/models/Movies';
 
 export interface MovieApiConfig {
   baseUrl: string;

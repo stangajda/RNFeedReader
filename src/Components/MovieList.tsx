@@ -2,16 +2,13 @@ import React, {FC, memo, useCallback, useMemo} from 'react';
 import {FlatList} from 'react-native';
 import MovieItem from './MovieItem';
 
-import {Movie} from '@src/model';
-
-type Props = {
-  movieList: Movie[];
-};
+import {Movie} from '@src/models/Movie';
+import {MovieListProps} from '@src/types/MovieList';
 
 export type MovieItem = {
   item: Movie;
 };
-const MovieList: FC<Props> = ({movieList}) => {
+const MovieList: FC<MovieListProps> = ({movieList}) => {
   const keyExtractor = useCallback((item: Movie) => item.id, []);
 
   const renderItem = useCallback(

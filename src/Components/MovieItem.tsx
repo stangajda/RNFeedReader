@@ -3,14 +3,14 @@ import React, {memo, useMemo} from 'react';
 import {View, Image} from 'react-native';
 import {movieApiPaths} from '@src/utils/helper';
 import Styles from './styles';
-import {Movie} from '@src/model';
+import {Movie} from '@src/models/Movie';
 import MovieContent from './MovieContent';
 
-type Props = {
+interface MovieItemProps {
   movie: Movie;
-};
+}
 
-const MovieItem = memo(({movie}: Props) => {
+const MovieItem = memo(({movie}: MovieItemProps) => {
   const imageUrl = useMemo(
     () => `${movieApiPaths.movieImageUrl()}${movie.poster_path}`,
     [movie.poster_path],
