@@ -5,8 +5,8 @@ import {
   API_IMAGE_BASE_URL,
   API_IMAGE_SIZE,
   API_INVALID_MOVIE_LIST_URL,
-} from './config';
-import {MovieApiConfig} from './interfaces';
+} from '../config';
+import {MovieApiConfig} from '../interfaces';
 
 const createUrl = (
   base: string,

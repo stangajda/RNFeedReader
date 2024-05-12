@@ -1,7 +1,7 @@
 // MovieItem.tsx
 import React, {memo, useMemo} from 'react';
 import {View, Image} from 'react-native';
-import {movieApiPaths} from '@src/helper';
+import {movieApiPaths} from '@src/utils/helper';
 import Styles from './styles';
 import {Movie} from '@src/model';
 import MovieContent from './MovieContent';

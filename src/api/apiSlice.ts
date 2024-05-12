@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {movieApiPaths} from '@src/helper';
+import {movieApiPaths} from '@src/utils/helper';
 import {Movies} from '@src/model';
 import {API_PROVIDED_TAGS, API_REDUCER_PATH, API_TAG_TYPES} from '@src/config';
 

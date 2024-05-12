@@ -1,5 +1,5 @@
 import {Middleware, configureStore} from '@reduxjs/toolkit';
-import {apiSlice} from './apiSlice';
+import {apiSlice} from '../api/apiSlice';
 
 export const store = configureStore({
   reducer: {

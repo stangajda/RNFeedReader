@@ -2,7 +2,7 @@ import 'react-native';
 import React, {ReactNode} from 'react';
 import {it} from '@jest/globals';
 import {mockMoviesListResponse} from './helpers/server';
-import {apiSlice, useGetMoviesQuery} from '@src/store/apiSlice';
+import {apiSlice, useGetMoviesQuery} from '@src/api/apiSlice';
 import {renderHook, waitFor} from '@testing-library/react-native';
 
 import {store} from '@src/store/store';

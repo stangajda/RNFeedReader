@@ -1,6 +1,6 @@
 import {IMoviesQueryResult} from '@src/interfaces';
 import {Injection} from './Injection';
-import {useGetMoviesQuery} from '@src/store/apiSlice';
+import {useGetMoviesQuery} from '@src/api/apiSlice';
 import {TYPES} from '@src/di/types';
 
 export const initialRegister = () => {
