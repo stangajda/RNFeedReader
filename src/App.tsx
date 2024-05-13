@@ -1,13 +1,13 @@
 import React from 'react';
 import {ActivityIndicator, SafeAreaView, View, Text} from 'react-native';
-import Styles from './styles';
-import MovieList from './MovieList';
-import {Movie} from '@src/model';
-import {IMoviesQueryResult} from '@src/interfaces';
+import Styles from './styles/styles';
+import MovieList from './Components/MovieList';
+import {Movie} from '@src/models/Movie';
+import {IMoviesQueryResult} from '@src/interfaces/QueryInterfaces';
 
-import {useDependenciesContainer} from '@src/DI/container';
-import {useInjectedDI} from '@src/DI/Context';
-import {initialEnvRegister} from '@src/DI/initialEnvRegister';
+import {useDependenciesContainer} from '@src/di/container';
+import {useInjectedDI} from '@src/di/Context';
+import {initialEnvRegister} from '@src/di/initialEnvRegister';
 
 function App(): React.JSX.Element {
   initialEnvRegister();

@@ -1,8 +1,8 @@
 // MovieTitleAndRating.tsx
 import React, {memo} from 'react';
 import {View, Text} from 'react-native';
-import {Movie} from '@src/model';
-import Styles from './styles';
+import {Movie} from '@src/models/Movie';
+import Styles from '@src/styles/styles';
 
 interface Props {
   movie: Movie;

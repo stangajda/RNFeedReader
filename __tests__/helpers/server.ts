@@ -1,6 +1,6 @@
 import {http, HttpResponse} from 'msw';
 import {setupServer} from 'msw/node';
-import {IMoviesResponse} from '@src/interfaces';
+import {IMoviesResponse} from '@src/interfaces/QueryInterfaces';
 
 const server = setupServer();
 

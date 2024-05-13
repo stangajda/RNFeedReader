@@ -1,4 +1,4 @@
-import {IMoviesQueryResult} from '@src/interfaces';
+import {IMoviesQueryResult} from '@src/interfaces/QueryInterfaces';
 
 export interface IDependencies {
   moviesQueryResult: () => IMoviesQueryResult;

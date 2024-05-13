@@ -1,7 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {movieApiPaths} from '@src/helper';
-import {Movies} from '@src/model';
-import {API_PROVIDED_TAGS, API_REDUCER_PATH, API_TAG_TYPES} from '@src/config';
+import {movieApiPaths} from '@src/utils/helper';
+import {Movies} from '@src/models/Movies';
+import {
+  API_PROVIDED_TAGS,
+  API_REDUCER_PATH,
+  API_TAG_TYPES,
+} from '@src/config/config';
 
 export const apiSlice = createApi({
   reducerPath: API_REDUCER_PATH,
