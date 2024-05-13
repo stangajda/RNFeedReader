@@ -6,6 +6,12 @@ interface IError {
   error: Error;
 }
 
+export interface MovieApiConfig {
+  baseUrl: string;
+  trendingUrl: () => string;
+  movieImageUrl: () => string;
+}
+
 export interface IMoviesQueryResult {
   data?: Movies;
   isLoading: boolean;

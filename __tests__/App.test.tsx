@@ -9,8 +9,8 @@ import {store} from '@src/store/store';
 import {Provider} from 'react-redux';
 import {setupMockServer} from './helpers/server';
 
-import {Movies} from '@src/Model';
-import {IMoviesResponse} from '@src/interfaces';
+import {Movies} from '@src/models/Movies';
+import {IMoviesResponse} from '@src/interfaces/QueryInterfaces';
 
 function wrapper({children}: {children: ReactNode}) {
   return <Provider store={store}>{children}</Provider>;
