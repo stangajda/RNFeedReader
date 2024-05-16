@@ -11,6 +11,8 @@ import {initialEnvRegister} from '@src/di/initialEnvRegister';
 
 function App(): React.JSX.Element {
   initialEnvRegister();
+
+  // This approach is follow react hooks rules. https://react.dev/reference/rules/rules-of-hooks
   const deps = useInjectedDI(useDependenciesContainer());
 
   const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
