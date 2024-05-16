@@ -6,8 +6,14 @@
 
 ### This approach facilitates testing, enhances maintainability, and promotes reusability with complete code coverage. Individual states can be injected and tested in isolation, resulting in a robust and scalable application architecture.
 
+### 3 main benefits of this approach:
+- **Code Reusability of Custom Hooks**: Enables seamless sharing of custom hooks between React Native and React web components.
+- **Simplify Mocking**: IoC makes it much easier for developers to mock dependencies during testing, leading to more comprehensive and maintainable test suites.
+- **Eliminate Flaky Tests**: IoC promotes the creation of isolated and independent test cases for each state separately, reducing the occurrence of flaky or unreliable tests.
+
 ## Good Uses
 
+- **Code Reusability Across Projects**: Dependency Injection allows services, components, and React hooks to be reused in different contexts by decoupling them from their concrete dependencies. This enables seamless sharing of code between React Native and React web components.
 - **Large-Scale Applications**: They benefit from the modular and maintainable code structure that IoC provides.
 - **Centralizing Configuration**: A singleton container can manage and centralize the configuration for shared services, ensuring consistent behavior throughout the application.
 - **Shared Resources Management**: When multiple components need to access the same instance of a resource, a singleton container can provide and manage this shared instance.
@@ -15,7 +21,7 @@
 - **Maintaining Single Instances with DI**: Utilizing an IoC container for singleton pattern implementation allows for the consistent creation of a single instance, while still providing the flexibility to manage dependencies through injection, leading to cleaner and more testable code.
 - **Unit Testing and Mocking**: IoC facilitates testing by allowing easy substitution of dependencies, crucial for achieving 100% code coverage.
 - **Maintainable Code**: It allows for the easy separation of concerns and allows for the easy replacement of dependencies.
-- **Code Reusability Across Projects**: Dependency Injection allows services and components to be reused in different contexts by decoupling them from their concrete dependencies.
+
 
 ## Less Ideal Uses
 
@@ -77,6 +83,7 @@ export const initialEnvRegister = (): void => {
 };
 
 initialEnvRegister();
+// This approach is follow react hooks rules. https://react.dev/reference/rules/rules-of-hooks
 const deps = useInjectedDI(useDependenciesContainer());
 
 const {data, isLoading, isSuccess, isError, error}: IMoviesQueryResult =
